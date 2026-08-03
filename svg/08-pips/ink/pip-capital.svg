@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" data-layer="pip">
+<title>Cost pip — Capital</title><desc>Shapes pass — monochrome ink.</desc>
+<circle cx="100" cy="100" r="96" fill="#1F2730"></circle>
+<circle cx="100" cy="100" r="80" fill="#F0EBDD"></circle>
+<circle cx="100" cy="100" r="80" fill="none" stroke="#1F2730" stroke-width="3" opacity="0.5"></circle>
+<path d="M 127 76 C 127 60 114 52 100 52 C 86 52 75 61 75 74 C 75 100 127 96 127 126 C 127 141 114 149 100 149 C 86 149 72 141 72 125" fill="none" stroke="#1F2730" stroke-width="13" stroke-linecap="square"></path><path d="M 100 39 V 162" stroke="#1F2730" stroke-width="11" stroke-linecap="square"></path>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="731" height="1031" viewBox="0 0 731 1031" data-layer="frame">
+<title>Lens — frame</title><desc>Plate rule, the lens rim (clipped to the plate so the art bleeds off the top-right and bottom-right corners), and two echo arcs through the cost crescent. Above the artwork, below the plates. Place at x 47, y 47 on the 825×1125 canvas.</desc>
+<g transform="translate(-47 -47)"><clipPath id="pl"><path d="M 63.5 122 C 63.5 90 90 63.5 122 63.5 L 730 63.5 C 748 63.5 761.5 77 761.5 95 L 761.5 1030 C 761.5 1048 748 1061.5 730 1061.5 L 104 1061.5 C 82 1061.5 63.5 1043 63.5 1021 Z"></path></clipPath>
+<g clip-path="url(#pl)">
+  <g fill="none" stroke-linecap="round">
+    <path d="M 272 102 C 170 180 124 328 126 470 C 128 622 168 740 240 832" stroke="#638690" stroke-width="2"></path>
+    <path d="M 286 124 C 190 196 148 330 150 470 C 152 616 190 726 260 812" stroke="#1F2730" stroke-width="3.5"></path>
+  </g>
+  <path d="M 300 150 C 420 116 600 72 744 58 C 786 52 820 78 820 120 L 820 940 C 820 984 784 1006 742 1002 C 596 990 452 946 350 856 C 248 766 182 620 176 470 C 170 336 208 216 300 150 Z" fill="none" stroke="#1F2730" stroke-width="22"></path>
+  <path d="M 300 150 C 420 116 600 72 744 58 C 786 52 820 78 820 120 L 820 940 C 820 984 784 1006 742 1002 C 596 990 452 946 350 856 C 248 766 182 620 176 470 C 170 336 208 216 300 150 Z" fill="none" stroke="#F0EBDD" stroke-width="15"></path>
+  <path d="M 300 150 C 420 116 600 72 744 58 C 786 52 820 78 820 120 L 820 940 C 820 984 784 1006 742 1002 C 596 990 452 946 350 856 C 248 766 182 620 176 470 C 170 336 208 216 300 150 Z" fill="none" stroke="#1F2730" stroke-width="4"></path>
+</g>
+<path d="M 63.5 122 C 63.5 90 90 63.5 122 63.5 L 730 63.5 C 748 63.5 761.5 77 761.5 95 L 761.5 1030 C 761.5 1048 748 1061.5 730 1061.5 L 104 1061.5 C 82 1061.5 63.5 1043 63.5 1021 Z" fill="none" stroke="#1F2730" stroke-width="5"></path>
+<path d="M 73.5 122 C 73.5 95.2 95.2 73.5 122 73.5 L 730 73.5 C 741.9 73.5 751.5 83.1 751.5 95 L 751.5 1030 C 751.5 1041.9 741.9 1051.5 730 1051.5 L 104 1051.5 C 87.2 1051.5 73.5 1037.8 73.5 1021 Z" fill="none" stroke="#638690" stroke-width="1.8"></path></g>
+</svg>

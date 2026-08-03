@@ -1,0 +1,25 @@
+# Mastra trading cards — content source.
+#
+# One entry per card. Fields:
+#   name    : card title (top plate)
+#   type    : type line (type bar), e.g. "Agent — Dolor"
+#   cost    : list of up to 5 resource pips, top→bottom down the left crescent.
+#             Each is one of: capital | attention | technology | blank
+#   rules   : rules text (textbox). Multi-line OK. Plain text.
+#   flavor  : italic flavor line under the rules (optional)
+#   stat    : stat badge text, e.g. "3 / 4" (optional — omit to hide the badge)
+#   art     : art filename under art/ (optional — omit to use art-placeholder.svg)
+#   artist  : credit line (optional)
+#
+# Placeholder card mirrors the design-doc mock so the pipeline renders end-to-end
+# before real content lands. Replace / append real cards below.
+
+- name: Lorem Ipsum
+  type: Agent — Dolor
+  cost: [capital, attention, technology]
+  rules: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+  flavor: Ut enim ad minim veniam, quis nostrud.
+  stat: "3 / 4"
+  art:
+  artist: Artist Name

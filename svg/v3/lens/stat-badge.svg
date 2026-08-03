@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="136" viewBox="0 0 240 136" data-layer="stat-badge">
+<title>Lens — stat badge</title><desc>stat badge plate. Sits on the lens; a solid stacked edge falls below-right. Shares the same outer envelope as every other plate (left 76, right 748). Place at x 528, y 930 on the 825×1125 canvas.</desc>
+<g transform="translate(-528 -930)"><path d="M 548 1002 C 548 978 570 960 604 956 C 650 950 706 954 730 968 C 744 976 748 994 744 1014 C 740 1032 720 1042 690 1044 C 644 1046 588 1040 566 1028 C 553 1021 548 1012 548 1002 Z" transform="translate(10 11)" fill="#1F2730" opacity="0.2"></path>
+<path d="M 548 1002 C 548 978 570 960 604 956 C 650 950 706 954 730 968 C 744 976 748 994 744 1014 C 740 1032 720 1042 690 1044 C 644 1046 588 1040 566 1028 C 553 1021 548 1012 548 1002 Z" fill="#f7f2ec" fill-opacity="1"></path>
+<path d="M 548 1002 C 548 978 570 960 604 956 C 650 950 706 954 730 968 C 744 976 748 994 744 1014 C 740 1032 720 1042 690 1044 C 644 1046 588 1040 566 1028 C 553 1021 548 1012 548 1002 Z" fill="none" stroke="#1F2730" stroke-width="11"></path>
+<path d="M 548 1002 C 548 978 570 960 604 956 C 650 950 706 954 730 968 C 744 976 748 994 744 1014 C 740 1032 720 1042 690 1044 C 644 1046 588 1040 566 1028 C 553 1021 548 1012 548 1002 Z" fill="none" stroke="#f7f2ec" stroke-opacity="1" stroke-width="5"></path></g>
+</svg>

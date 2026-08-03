@@ -1,0 +1,7 @@
+# Squib pipeline
+/vendor/
+/.bundle/
+/output/
+
+# OS / editor
+.DS_Store
