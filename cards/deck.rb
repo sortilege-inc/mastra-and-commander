@@ -169,17 +169,17 @@ Dir.chdir(ROOT) do
 
       tbx = spec['textBoxes']
 
-      # 2. title
+      # 2. title (autoscale shrinks long names to fit instead of ellipsizing)
       t = tbx['title']
       text str: names, range: idxs, font: "#{font_str(t['font'])} #{pt.call(t['font']['size'])}",
            color: t['font']['color'], x: t['x'], y: t['y'], width: t['w'], height: t['h'],
-           align: :center, valign: :middle
+           align: :center, valign: :middle, ellipsize: :autoscale
 
       # 3. traits (subtitle plate)
       if (tr = tbx['traits'])
         text str: traits, range: idxs, font: "#{font_str(tr['font'])} #{pt.call(tr['font']['size'])}",
              color: tr['font']['color'], x: tr['x'], y: tr['y'], width: tr['w'], height: tr['h'],
-             align: :center, valign: :middle, ellipsize: false
+             align: :center, valign: :middle, ellipsize: :autoscale
       end
 
       # 4. rules (with inline pip icons)
