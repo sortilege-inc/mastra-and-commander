@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="guides" data-printing="false" width="825" height="1125" viewBox="0 0 825 1125">
+<rect x="0.5" y="0.5" width="824" height="1124" fill="none" stroke="#ff3b6b" stroke-opacity="0.7" stroke-width="1" stroke-dasharray="8 6"></rect>
+<rect x="37.5" y="37.5" width="750" height="1050" rx="40" fill="none" stroke="#00ff9d" stroke-opacity="0.75" stroke-width="1"></rect>
+<rect x="62.5" y="62.5" width="700" height="1000" rx="28" fill="none" stroke="#ffd23b" stroke-opacity="0.7" stroke-width="1" stroke-dasharray="6 5"></rect>
+<path d="M412.5,0 V1125 M0,562.5 H825" stroke="#ff3b6b" stroke-opacity="0.45" stroke-width="1" stroke-dasharray="4 8"></path>
+<rect x="192" y="342" width="441" height="441" fill="none" stroke="#7d1c2b" stroke-opacity="0.8" stroke-width="1" stroke-dasharray="5 5"></rect>
+<circle cx="412.5" cy="562.5" r="4" fill="#ff3b6b"></circle>
+<text x="200" y="336" font-family="ui-monospace,monospace" font-size="13" fill="#7d1c2b">medallion 441×441 · centre 412.5,562.5</text>
+<text x="70" y="1108" font-family="ui-monospace,monospace" font-size="13" fill="#ff3b6b">180° rotationally symmetric — no orientation tell</text>
+</svg>

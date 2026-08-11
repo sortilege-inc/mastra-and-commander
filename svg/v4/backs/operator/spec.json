@@ -1,0 +1,119 @@
+{
+  "name": "Mastra & Commander — Operator deck back",
+  "variant": "back-operator",
+  "family": "ice-chrome",
+  "face": "back",
+  "version": "3.0.0",
+  "canvas": {
+    "w": 825,
+    "h": 1125,
+    "dpi": 300
+  },
+  "bleed": 37.5,
+  "trim": {
+    "x": 37.5,
+    "y": 37.5,
+    "w": 750,
+    "h": 1050,
+    "radius": 40
+  },
+  "safe": {
+    "x": 62.5,
+    "y": 62.5,
+    "w": 700,
+    "h": 1000,
+    "radius": 28
+  },
+  "accent": "#00c2d4",
+  "accentName": "cyan",
+  "appliesTo": [
+    "ice",
+    "eval",
+    "feature",
+    "equip",
+    "model",
+    "framework"
+  ],
+  "symmetry": "180° rotational about 412.5,562.5 — no orientation tell",
+  "layers": {
+    "back-base": {
+      "file": "layers/back-base.svg",
+      "x": 0,
+      "y": 0,
+      "w": 825,
+      "h": 1125,
+      "z": 10
+    },
+    "back-lattice": {
+      "file": "layers/back-lattice.svg",
+      "x": 0,
+      "y": 0,
+      "w": 825,
+      "h": 1125,
+      "z": 20
+    },
+    "back-frame": {
+      "file": "layers/back-frame.svg",
+      "x": 30,
+      "y": 30,
+      "w": 765,
+      "h": 1065,
+      "z": 40
+    },
+    "back-medallion": {
+      "file": "layers/back-medallion.svg",
+      "x": 192,
+      "y": 342,
+      "w": 441,
+      "h": 441,
+      "z": 60
+    },
+    "back-wordmark": {
+      "file": "layers/back-wordmark.svg",
+      "x": 0,
+      "y": 0,
+      "w": 825,
+      "h": 1125,
+      "z": 70,
+      "bakedText": "MASTRA / & COMMANDER / OPERATOR DECK ×2"
+    },
+    "guides": {
+      "file": "layers/guides.svg",
+      "x": 0,
+      "y": 0,
+      "w": 825,
+      "h": 1125,
+      "z": 999,
+      "printing": false
+    }
+  },
+  "zones": {
+    "medallion": {
+      "x": 192,
+      "y": 342,
+      "w": 441,
+      "h": 441
+    },
+    "wordmarkTop": {
+      "x": 212,
+      "y": 150,
+      "w": 401,
+      "h": 170
+    },
+    "wordmarkBottom": {
+      "x": 212,
+      "y": 805,
+      "w": 401,
+      "h": 170
+    }
+  },
+  "textBoxes": {},
+  "notes": [
+    "Backs carry no live text — every glyph is baked.",
+    "Layout is 180° rotationally symmetric about the card centre so a card in hand gives away nothing about its orientation.",
+    "back-wordmark.svg draws the lockup once inside #wmHalf and re-uses it rotated 180°; edit the group, both copies follow.",
+    "back-lattice.svg does the same with #halfOrn for the circuit ornament.",
+    "Ice-chrome ground with the cyan set mark scaled ×13 as the medallion — identical geometry to collector.svg's set mark.",
+    "Used for every deck except Entropy: ice, eval, feature, equip, model, framework."
+  ]
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="825" height="1125" viewBox="0 0 825 1125">
+<g id="wmHalf">
+  <text x="412.5" y="196" text-anchor="middle" font-family="&#39;Chakra Petch&#39;,&#39;Barlow Condensed&#39;,system-ui,sans-serif" font-weight="700" font-size="40" letter-spacing="7" fill="#e9f2f8">MASTRA</text>
+  <path d="M262,222 H563" stroke="#c4384e" stroke-opacity="0.9" stroke-width="2.2"></path>
+  <text x="412.5" y="258" text-anchor="middle" font-family="&#39;Chakra Petch&#39;,&#39;Barlow Condensed&#39;,system-ui,sans-serif" font-weight="600" font-size="19" letter-spacing="8" fill="#8ea7b6" fill-opacity="0.85">&amp; COMMANDER</text>
+  <text x="412.5" y="306" text-anchor="middle" font-family="&#39;Chakra Petch&#39;,&#39;Barlow Condensed&#39;,system-ui,sans-serif" font-weight="600" font-size="15" letter-spacing="6.5" fill="#e0798b">ENTROPY DECK</text>
+</g>
+<use href="#wmHalf" transform="rotate(180,412.5,562.5)"></use>
+</svg>

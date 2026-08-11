@@ -262,3 +262,24 @@ Dir.chdir(ROOT) do
     save_pdf file: 'mastra_cards.pdf', dir: 'output', trim: 37.5, trim_radius: 40
   end
 end
+
+# --- card backs (2 shared backs; all-baked, no live text) --------------------
+# operator back → every non-entropy deck; entropy back → entropy cards.
+BACKS = { 'operator' => "#{V4}/backs/operator", 'entropy' => "#{V4}/backs/entropy" }
+Dir.chdir(ROOT) do
+  Squib::Deck.new(width: 825, height: 1125, cards: BACKS.size, dpi: DPI) do
+    BACKS.values.each_with_index do |dir, i|
+      bspec = JSON.parse(File.read(File.join(ROOT, dir, 'spec.json')))
+      bspec['layers']
+        .reject { |name, _l| name == 'guides' && !GUIDES }
+        .sort_by { |_n, l| l['z'] }
+        .each { |_n, l| svg file: "#{dir}/#{l['file']}", range: i, x: l['x'], y: l['y'], width: l['w'], height: l['h'] }
+    end
+    save_png dir: 'output', prefix: 'back_'
+  end
+end
+# clean filenames: back_00 → back_operator.png, back_01 → back_entropy.png
+BACKS.keys.each_with_index do |name, i|
+  src = File.join(ROOT, 'output', format('back_%02d.png', i))
+  File.rename(src, File.join(ROOT, 'output', "back_#{name}.png")) if File.exist?(src)
+end

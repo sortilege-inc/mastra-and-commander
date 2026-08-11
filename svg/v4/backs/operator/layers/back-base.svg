@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="825" height="1125" viewBox="0 0 825 1125">
+<defs>
+  <radialGradient id="bbG" cx="0.5" cy="0.5" r="0.72"><stop offset="0" stop-color="#f7fbfd"></stop><stop offset="0.5" stop-color="#dceaf2"></stop><stop offset="1" stop-color="#b3cbdb"></stop></radialGradient>
+  <pattern id="bbGrid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25,0 V25 M0,25 H25" fill="none" stroke="#3d6a83" stroke-opacity="0.08" stroke-width="1"></path></pattern>
+  <radialGradient id="bbCore" cx="0.5" cy="0.5" r="0.42"><stop offset="0" stop-color="#00c2d4" stop-opacity="0.16"></stop><stop offset="1" stop-color="#00c2d4" stop-opacity="0"></stop></radialGradient>
+  <radialGradient id="bbVig" cx="0.5" cy="0.5" r="0.7"><stop offset="0.5" stop-color="#04121a" stop-opacity="0"></stop><stop offset="1" stop-color="#04121a" stop-opacity="0.3"></stop></radialGradient>
+</defs>
+<rect width="825" height="1125" fill="url(#bbG)"></rect>
+<rect width="825" height="1125" fill="url(#bbGrid)"></rect>
+<rect width="825" height="1125" fill="url(#bbCore)"></rect>
+<rect width="825" height="1125" fill="url(#bbVig)"></rect>
+</svg>

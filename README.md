@@ -28,6 +28,10 @@ and differs by **accent tone** + slot groups:
 | `model` | Model | indigo | grants (≤3) · tier marker |
 | `framework` | Framework | platinum | Mastra prestige frame |
 
+**Card backs** (`svg/v4/backs/`): two shared, all-baked, 180°-symmetric backs — `operator`
+(cyan; used by every non-Entropy deck) and `entropy` (oxblood). `deck.rb` renders them to
+`output/back_operator.png` / `output/back_entropy.png`.
+
 ## Card content — `cards/cards.yml`
 
 One entry per card (currently the 18 **Operator** placeholders transcribed from the

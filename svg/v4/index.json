@@ -11,6 +11,25 @@
     "subtitle-plate + traits text box (1–5 words below the title)",
     "collector footer bottom-right: card number text box + set mark + 2026"
   ],
+  "backs": [
+    {
+      "id": "operator",
+      "name": "Operator deck back",
+      "accent": "#00c2d4",
+      "spec": "svg/v4/backs/operator/spec.json",
+      "appliesTo": ["ice", "eval", "feature", "equip", "model", "framework"],
+      "note": "Default back for every deck except Entropy."
+    },
+    {
+      "id": "entropy",
+      "name": "Entropy deck back",
+      "accent": "#7d1c2b",
+      "accentLift": "#c4384e",
+      "spec": "svg/v4/backs/entropy/spec.json",
+      "appliesTo": ["entropy"],
+      "note": "Entropy cards only. Same architecture on the deep-well ground; hairlines lift to #c4384e for contrast."
+    }
+  ],
   "variants": [
     {
       "id": "ice",
