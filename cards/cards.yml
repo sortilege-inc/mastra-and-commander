@@ -20,7 +20,7 @@
 - {kind: operator, name: Ingestion Pipeline, traits: [Infrastructure], consume: [capital, capital], produce: [generic], contributes: [green/circle], rules: "**Setup** — scrap it on a failed eval to shed 5 Entropy."}
 - {kind: operator, name: Guardrails, traits: [Response], consume: [attention], produce: [], contributes: [pink/circle], rules: "**Response:** remove up to 2 injected contributions."}
 - {kind: operator, name: Hotfix, traits: [Response], consume: [technology], produce: [], contributes: [pink/square], rules: "**Response:** restore one subverted card in the Context."}
-- {kind: operator, name: Frontier Model, traits: [Model], consume: [capital, capital, technology], produce: [], contributes: [violet/square], rules: "**Upgrade:** replaces your installed model. Grants {eye} and a generic each round."}
+- {kind: operator, name: Frontier Model, traits: [Model], consume: [capital, capital, technology], produce: [], contributes: [violet/square], rules: "**Upgrade:** replaces your installed model. Grants **attention** and a **generic** each round."}
 - {kind: operator, name: Chunking Step, traits: [Workflow], consume: [generic], produce: [generic], contributes: [amber/circle], rules: "A cheap link in the chain."}
 - {kind: operator, name: Embedding Step, traits: [Workflow], consume: [generic], produce: [generic], contributes: [amber/triangle], rules: "A cheap link in the chain."}
 - {kind: operator, name: Indexing Step, traits: [Workflow], consume: [generic], produce: [generic], contributes: [amber/square], rules: "A cheap link in the chain."}
@@ -51,17 +51,17 @@
 # ══ FEATURE (feature) ════════════════════════════════════════════════════════
 # effect: draw · shield (ignore entropy) · grant/PIP
 - {kind: feature, name: Streaming, effect: draw, rules: "Draw a card when selected."}
-- {kind: feature, name: Prompt Caching, effect: grant/technology, rules: "Gain {gear} this round."}
+- {kind: feature, name: Prompt Caching, effect: grant/technology, rules: "Gain **technology** this round."}
 - {kind: feature, name: Tracing, effect: shield, rules: "Ignore the next Entropy feed this round."}
-- {kind: feature, name: Evals, effect: grant/attention, rules: "Gain {eye} this round."}
+- {kind: feature, name: Evals, effect: grant/attention, rules: "Gain **attention** this round."}
 
 # ══ EQUIPMENT (equip) ════════════════════════════════════════════════════════
-- {kind: equipment, name: Local Rig, grants: [technology], rules: "Auto-pitches the top card of your deck each round; grants {gear}."}
-- {kind: equipment, name: Mastra Cloud, grants: [capital], rules: "Auto-pitches the top card of your deck each round; grants {coin}."}
+- {kind: equipment, name: Local Rig, grants: [technology], rules: "Auto-pitches the top card of your deck each round; grants **technology**."}
+- {kind: equipment, name: Mastra Cloud, grants: [capital], rules: "Auto-pitches the top card of your deck each round; grants **capital**."}
 
 # ══ MODEL (model) ════════════════════════════════════════════════════════════
 - {kind: model, name: Small Model, grants: [], rules: "Your free starting model. Grants nothing."}
-- {kind: model, name: Frontier Model, grants: [attention, generic], rules: "Grants {eye} and a generic each round."}
+- {kind: model, name: Frontier Model, grants: [attention, generic], rules: "Grants **attention** and a **generic** each round."}
 
 # ══ FRAMEWORK / Commander (framework) ════════════════════════════════════════
 - {kind: framework, name: Mastra, traits: [Framework], rules: "The first **Agent** played each round has no cost and incurs no Entropy."}
