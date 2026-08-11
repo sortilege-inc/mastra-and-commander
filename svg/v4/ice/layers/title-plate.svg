@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="549" height="94" viewBox="138 73 549 94">
+
+<defs>
+  <linearGradient id="tpFill" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.9"></stop><stop offset="0.5" stop-color="#e8f3f9" stop-opacity="0.7"></stop><stop offset="1" stop-color="#bcd5e3" stop-opacity="0.66"></stop></linearGradient>
+  <filter id="tpSh" x="-12%" y="-18%" width="124%" height="136%"><feDropShadow dx="0" dy="3" stdDeviation="4.5" flood-color="#0d2c3a" flood-opacity="0.28"></feDropShadow></filter><linearGradient id="tpCap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dcecf4" stop-opacity="0.95"></stop><stop offset="1" stop-color="#8fb3c6" stop-opacity="0.8"></stop></linearGradient></defs>
+<g filter="url(#tpSh)"><path d="M150,105 L170,85 L655,85 L675,105 L675,135 L655,155 L170,155 L150,135 Z" fill="url(#tpFill)"></path></g>
+<path d="M150,105 L170,85 L655,85 L675,105 L675,135 L655,155 L170,155 L150,135 Z" fill="none" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="2"></path>
+<path d="M154,106 L171,89 L654,89 L671,106 L671,134 L654,151 L171,151 L154,134 Z" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.4"></path>
+<g fill="url(#tpCap)" stroke="#2f4c60" stroke-opacity="0.4" stroke-width="1.2">
+  <path d="M150,93 L158,85 L188,85 L194.01,92.75 L179.99,147.25 L170,155 L158,155 L150,147 Z"></path><path d="M667,85 L675,93 L675,147 L667,155 L655,155 L645.01,147.25 L630.99,92.75 L637,85 Z"></path></g>
+<path d="M168,152.5 H657" stroke="#00c2d4" stroke-width="2.4" stroke-opacity="0.9"></path>
+<path d="M160,88.5 H665" stroke="#ffffff" stroke-width="2" stroke-opacity="0.75"></path>
+<g fill="#00c2d4" fill-opacity="0.85"><rect x="160" y="115" width="4" height="10"></rect><rect x="661" y="115" width="4" height="10"></rect></g>
+</svg>

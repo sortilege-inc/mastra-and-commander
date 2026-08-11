@@ -1,0 +1,101 @@
+{
+  "set": "Mastra & Commander — Ice Chrome family",
+  "version": "3.0.0",
+  "canvas": {
+    "w": 825,
+    "h": 1125,
+    "dpi": 300
+  },
+  "sharedAdditions": [
+    "type-overlay: card type rotated -90° on an accent-filled bar up the left edge (baked text)",
+    "subtitle-plate + traits text box (1–5 words below the title)",
+    "collector footer bottom-right: card number text box + set mark + 2026"
+  ],
+  "variants": [
+    {
+      "id": "ice",
+      "name": "Operator",
+      "cardType": "OPERATOR",
+      "accent": "#00c2d4",
+      "accentName": "cyan",
+      "spec": "svg/v4/ice/spec.json",
+      "renders": "produce (L,5) · consume (R,5) · contributes (B,3)",
+      "slotGroups": [
+        "produce",
+        "consume",
+        "contributes"
+      ]
+    },
+    {
+      "id": "entropy",
+      "name": "Entropy",
+      "cardType": "ENTROPY",
+      "accent": "#7d1c2b",
+      "accentName": "oxblood",
+      "spec": "svg/v4/entropy/spec.json",
+      "renders": "name · traits · vector · rules",
+      "slotGroups": []
+    },
+    {
+      "id": "eval",
+      "name": "Eval / Objective",
+      "cardType": "OBJECTIVE",
+      "accent": "#d9a12a",
+      "accentName": "gold",
+      "spec": "svg/v4/eval/spec.json",
+      "renders": "name · traits · target hand (≤5) · par · difficulty 1–3 · rules",
+      "slotGroups": [
+        "hand",
+        "difficulty"
+      ]
+    },
+    {
+      "id": "feature",
+      "name": "Feature",
+      "cardType": "FEATURE",
+      "accent": "#6b57c9",
+      "accentName": "violet",
+      "spec": "svg/v4/feature/spec.json",
+      "renders": "name · traits · one effect icon · rules",
+      "slotGroups": [
+        "effect"
+      ]
+    },
+    {
+      "id": "equip",
+      "name": "Equipment",
+      "cardType": "EQUIPMENT",
+      "accent": "#0f9a92",
+      "accentName": "teal-green",
+      "spec": "svg/v4/equip/spec.json",
+      "renders": "name · traits · grants (≤3) · rules",
+      "slotGroups": [
+        "grants"
+      ]
+    },
+    {
+      "id": "model",
+      "name": "Model",
+      "cardType": "MODEL",
+      "accent": "#3f7fd0",
+      "accentName": "indigo",
+      "spec": "svg/v4/model/spec.json",
+      "renders": "name · traits · grants (≤3) · tier marker · rules",
+      "slotGroups": [
+        "grants"
+      ]
+    },
+    {
+      "id": "framework",
+      "name": "Framework",
+      "cardType": "FRAMEWORK",
+      "accent": "#97a6b3",
+      "accentName": "platinum",
+      "spec": "svg/v4/framework/spec.json",
+      "renders": "name · traits · rules (frame only — content placeholder)",
+      "slotGroups": [
+        "frameworkZone"
+      ]
+    }
+  ]
+}

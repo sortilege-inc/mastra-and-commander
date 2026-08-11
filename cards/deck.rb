@@ -1,41 +1,48 @@
 # frozen_string_literal: true
 
-# Mastra & Commander — card build pipeline (Squib), Ice Chrome frame.
+# Mastra & Commander — card build pipeline (Squib), Ice Chrome family.
 #
 #   bundle exec ruby cards/deck.rb              # render all cards
 #   ONLY=Agent bundle exec ruby cards/deck.rb   # render only matching cards (fast)
 #   GUIDES=1 bundle exec ruby cards/deck.rb      # overlay the frame guides
 #
-# Geometry is driven by svg/v4/ice/spec.json (layer origins/z, slot centres,
-# text boxes). Canvas is 825×1125 @ 300dpi (2.75×3.75in; 2.5×3.5in trim).
-# Icons (produce/consume pips + contribution marks) are generated inline so they
-# can render light on the dark rail sockets and dark inline on the light panel.
+# Each card has a `kind` that selects a frame variant under svg/v4/<variant>/
+# (spec.json drives layer origins/z, slot centres, text boxes, accent). Icons
+# (pips + contribution marks) are generated inline so they render light on the
+# dark sockets and dark inline on the light rules panel.
 
 require 'squib'
 require 'yaml'
 require 'json'
 
 ROOT = File.expand_path('..', __dir__)
-ICE  = 'svg/v4/ice'
+V4   = 'svg/v4'
 DPI  = 300
 GUIDES = ENV['GUIDES'] == '1'
-SPEC = JSON.parse(File.read(File.join(ROOT, ICE, 'spec.json')))
+
+KIND_TO_VARIANT = {
+  'operator' => 'ice', 'entropy' => 'entropy', 'eval' => 'eval', 'feature' => 'feature',
+  'equipment' => 'equip', 'model' => 'model', 'framework' => 'framework'
+}.freeze
+SPECS = KIND_TO_VARIANT.values.uniq.each_with_object({}) do |v, h|
+  h[v] = JSON.parse(File.read(File.join(ROOT, V4, v, 'spec.json')))
+end
 
 # --- content -----------------------------------------------------------------
 raw = YAML.load_file(File.join(ROOT, 'cards', 'cards.yml')) || []
 raise 'cards.yml is empty' if raw.empty?
 cards = raw.map { |h| h.transform_keys(&:to_sym) }
+cards.each { |c| c[:kind] ||= 'operator' }
 
 only = ENV['ONLY'].to_s
 cards = cards.select { |c| c[:name].to_s.downcase.include?(only.downcase) } unless only.empty?
 raise "no cards match ONLY=#{ENV['ONLY']}" if cards.empty?
+TOTAL = cards.size
 
-col = ->(key) { cards.map { |c| c[key] } }
 pt  = ->(px) { (px * 72.0 / DPI).round(2) }
 esc = ->(s) { s.to_s.gsub('&', '&amp;').gsub('<', '&lt;').gsub('>', '&gt;') }
 
 # --- icon generators (inline SVG) --------------------------------------------
-# Pip glyphs on a 200×200 canvas; %C% is the stroke/fill colour.
 PIP_GLYPH = {
   'capital'    => '<path d="M 127 76 C 127 60 114 52 100 52 C 86 52 75 61 75 74 C 75 100 127 96 127 126 C 127 141 114 149 100 149 C 86 149 72 141 72 125" fill="none" stroke="%C%" stroke-width="15" stroke-linecap="round"/><path d="M 100 39 V 162" stroke="%C%" stroke-width="13" stroke-linecap="round"/>',
   'attention'  => '<path d="M 40 100 C 63 66 137 66 160 100 C 137 134 63 134 40 100 Z" fill="none" stroke="%C%" stroke-width="13" stroke-linejoin="round"/><circle cx="100" cy="100" r="22" fill="%C%"/>',
@@ -57,20 +64,67 @@ def poly(n, cx, cy, r, rot)
 end
 def contrib_svg(color, shape)
   fill = CONTRIB_COLOR[color.to_s] || '#8899aa'
-  stroke = 'stroke="#ffffff" stroke-opacity="0.9" stroke-width="2.5" stroke-linejoin="round"'
+  st = 'stroke="#ffffff" stroke-opacity="0.9" stroke-width="2.5" stroke-linejoin="round"'
   up = -Math::PI / 2
   body = case shape.to_s
-         when 'circle'   then %(<circle cx="30" cy="30" r="22" fill="#{fill}" #{stroke}/>)
-         when 'square'   then %(<rect x="10" y="10" width="40" height="40" rx="4" fill="#{fill}" #{stroke}/>)
-         when 'triangle' then %(<polygon points="#{poly(3, 30, 33, 25, up)}" fill="#{fill}" #{stroke}/>)
-         when 'pentagon' then %(<polygon points="#{poly(5, 30, 31, 24, up)}" fill="#{fill}" #{stroke}/>)
-         when 'hexagon'  then %(<polygon points="#{poly(6, 30, 30, 24, up)}" fill="#{fill}" #{stroke}/>)
-         else %(<circle cx="30" cy="30" r="22" fill="#{fill}" #{stroke}/>)
+         when 'square'   then %(<rect x="10" y="10" width="40" height="40" rx="4" fill="#{fill}" #{st}/>)
+         when 'triangle' then %(<polygon points="#{poly(3, 30, 33, 25, up)}" fill="#{fill}" #{st}/>)
+         when 'pentagon' then %(<polygon points="#{poly(5, 30, 31, 24, up)}" fill="#{fill}" #{st}/>)
+         when 'hexagon'  then %(<polygon points="#{poly(6, 30, 30, 24, up)}" fill="#{fill}" #{st}/>)
+         else %(<circle cx="30" cy="30" r="22" fill="#{fill}" #{st}/>)
          end
   %(<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">#{body}</svg>)
 end
+def disc_svg(color)
+  %(<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="18" fill="#{color}" stroke="#ffffff" stroke-opacity="0.85" stroke-width="2.5"/></svg>)
+end
 
-# rules mini-syntax: **bold** + inline pip tokens {gear}{eye}{coin}{blank}
+# --- eval hand marks (visualise the target pattern) --------------------------
+def swatch_svg(color)  # this colour, any shape
+  fill = CONTRIB_COLOR[color.to_s] || '#8899aa'
+  %(<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><rect x="13" y="13" width="34" height="34" rx="9" fill="#{fill}" stroke="#ffffff" stroke-opacity="0.9" stroke-width="2.5"/><circle cx="30" cy="30" r="26" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.8" stroke-dasharray="4 5"/></svg>)
+end
+def shape_outline_svg(shape)  # any colour, this shape
+  st = 'fill="none" stroke="#cfe3ee" stroke-width="4" stroke-linejoin="round"'
+  up = -Math::PI / 2
+  body = case shape.to_s
+         when 'square'   then %(<rect x="11" y="11" width="38" height="38" rx="4" #{st}/>)
+         when 'triangle' then %(<polygon points="#{poly(3, 30, 33, 24, up)}" #{st}/>)
+         when 'pentagon' then %(<polygon points="#{poly(5, 30, 31, 23, up)}" #{st}/>)
+         when 'hexagon'  then %(<polygon points="#{poly(6, 30, 30, 23, up)}" #{st}/>)
+         else %(<circle cx="30" cy="30" r="21" #{st}/>)
+         end
+  %(<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">#{body}</svg>)
+end
+def ban_svg(color)  # this colour is forbidden
+  fill = CONTRIB_COLOR[color.to_s] || '#8899aa'
+  %(<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="19" fill="#{fill}" fill-opacity="0.85"/><line x1="15" y1="45" x2="45" y2="15" stroke="#ff5555" stroke-width="5.5" stroke-linecap="round"/></svg>)
+end
+def anymark_svg  # any contribution
+  %(<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="19" fill="none" stroke="#9fb4c2" stroke-width="4" stroke-dasharray="3.5 4.5"/></svg>)
+end
+def hand_svg(token)
+  t = token.to_s
+  return ban_svg(t[1..]) if t.start_with?('!')
+  return anymark_svg if t == '*' || t == '*/*'
+  color, shape = t.split('/')
+  return shape_outline_svg(shape) if color == '*'
+  return swatch_svg(color) if shape.nil? || shape == '*'
+  contrib_svg(color, shape)
+end
+
+# --- feature effect glyphs ---------------------------------------------------
+def effect_svg(token, color)
+  t = token.to_s
+  return pip_svg(t.split('/', 2)[1], color) if t.start_with?('grant/')
+  body = if t == 'shield'
+           %(<path d="M50 20 L76 30 V52 C76 70 62 80 50 84 C38 80 24 70 24 52 V30 Z" fill="none" stroke="#{color}" stroke-width="6.5" stroke-linejoin="round"/><path d="M40 52 L48 60 L64 42" fill="none" stroke="#{color}" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>)
+         else # draw
+           %(<g fill="none" stroke="#{color}" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"><rect x="30" y="26" width="40" height="52" rx="6"/><path d="M50 70 V42 M40 52 L50 42 L60 52"/></g>)
+         end
+  %(<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">#{body}</svg>)
+end
+
 ICON_ALIASES = {
   'coin' => 'capital', 'capital' => 'capital', 'eye' => 'attention', 'attention' => 'attention',
   'gear' => 'technology', 'technology' => 'technology', 'blank' => 'generic', 'generic' => 'generic'
@@ -81,57 +135,126 @@ rich = lambda do |raw_text|
   s.gsub(/\{([a-z]+)\}/) { (a = ICON_ALIASES[Regexp.last_match(1)]) ? "{{#{a}}}" : Regexp.last_match(0) }
 end
 
-ICE_LIGHT = '#eaffff'  # pip colour on dark rail sockets
-INK       = '#1a3441'  # pip colour inline on the light rules panel
+ICE_LIGHT = '#eaffff'  # pips on dark sockets
+INK       = '#1a3441'  # pips inline on the light panel
 PIP_SIZE  = 46
 CON_SIZE  = 44
 
+# text-box helper: draw one text-box (from spec) across a card range
+def font_str(f)
+  weight = { 700 => 'Bold', 600 => 'SemiBold', 500 => 'Medium', 400 => '' }[f['weight']] || ''
+  "#{f['family']} #{weight}".strip
+end
+
 Dir.chdir(ROOT) do
-  Squib::Deck.new(width: SPEC['canvas']['w'], height: SPEC['canvas']['h'], cards: cards.size, dpi: DPI) do
-    # 1. frame layers, in z-order (skip the mask; guides only on demand)
-    SPEC['layers']
-      .reject { |name, l| l['role'] == 'mask' || (name == 'guides' && !GUIDES) }
-      .sort_by { |_name, l| l['z'] }
-      .each do |_name, l|
-        svg file: "#{ICE}/#{File.basename(l['file'])}", x: l['x'], y: l['y'], width: l['w'], height: l['h']
+  Squib::Deck.new(width: 825, height: 1125, cards: TOTAL, dpi: DPI) do
+    names     = cards.map { |c| c[:name].to_s.upcase }
+    traits    = cards.map { |c| Array(c[:traits]).join(' · ').upcase }
+    rules_col = cards.map { |c| c[:rules] }
+    collector = (0...TOTAL).map { |i| format('%03d/%03d', i + 1, TOTAL) }
+
+    by_kind = (0...TOTAL).group_by { |i| cards[i][:kind] }
+
+    by_kind.each do |kind, idxs|
+      v = KIND_TO_VARIANT[kind] || 'ice'
+      spec = SPECS[v]
+      dir = "#{V4}/#{v}"
+      accent = spec['accent']
+
+      # 1. frame layers (z-order; skip the mask; guides only on demand)
+      spec['layers']
+        .reject { |name, l| l['role'] == 'mask' || (name == 'guides' && !GUIDES) }
+        .sort_by { |_n, l| l['z'] }
+        .each { |_n, l| svg file: "#{dir}/#{l['file']}", range: idxs, x: l['x'], y: l['y'], width: l['w'], height: l['h'] }
+
+      tbx = spec['textBoxes']
+
+      # 2. title
+      t = tbx['title']
+      text str: names, range: idxs, font: "#{font_str(t['font'])} #{pt.call(t['font']['size'])}",
+           color: t['font']['color'], x: t['x'], y: t['y'], width: t['w'], height: t['h'],
+           align: :center, valign: :middle
+
+      # 3. traits (subtitle plate)
+      if (tr = tbx['traits'])
+        text str: traits, range: idxs, font: "#{font_str(tr['font'])} #{pt.call(tr['font']['size'])}",
+             color: tr['font']['color'], x: tr['x'], y: tr['y'], width: tr['w'], height: tr['h'],
+             align: :center, valign: :middle, ellipsize: false
       end
 
-    # 2. title (Chakra Petch Bold, uppercase, centred)
-    tb = SPEC['textBoxes']['title']
-    text str: col.call(:name).map { |n| n.to_s.upcase }, font: "Chakra Petch Bold #{pt.call(tb['font']['size'])}",
-         color: tb['font']['color'], x: tb['x'], y: tb['y'], width: tb['w'], height: tb['h'],
-         align: :center, valign: :middle
-
-    # 3. traits — slim line atop the rules panel
-    rb = SPEC['textBoxes']['rules']
-    traits_line = cards.map { |c| Array(c[:traits]).join('   ·   ').upcase }
-    text str: traits_line, font: "Barlow SemiBold #{pt.call(17)}", color: '#0a6f7d',
-         x: rb['x'], y: rb['y'] - 4, width: rb['w'], height: 24, align: :left, valign: :middle
-
-    # 4. rules text (Barlow), below the traits line, with inline pip icons
-    rules_markup = cards.map { |c| rich.call(c[:rules]) }
-    text(str: rules_markup, markup: true, font: "Barlow #{pt.call(rb['font']['size'])}",
-         color: rb['font']['color'], x: rb['x'], y: rb['y'] + 26, width: rb['w'], height: rb['h'] - 26,
-         valign: :top, spacing: pt.call(7)) do |embed|
-      %w[capital attention technology generic].each do |res|
-        embed.svg key: "{{#{res}}}", data: pip_svg(res, INK), width: 30, height: 30, dy: -22
+      # 4. rules (with inline pip icons)
+      r = tbx['rules']
+      markup = cards.map { |c| rich.call(c[:rules]) }
+      text(str: markup, range: idxs, markup: true, font: "#{font_str(r['font'])} #{pt.call(r['font']['size'])}",
+           color: r['font']['color'], x: r['x'], y: r['y'], width: r['w'], height: r['h'],
+           valign: :top, spacing: pt.call(7)) do |embed|
+        %w[capital attention technology generic].each do |res|
+          embed.svg key: "{{#{res}}}", data: pip_svg(res, INK), width: 30, height: 30, dy: -22
+        end
       end
-    end
 
-    # 5. icons on the rails — produce (left), consume (right), contributes (bottom)
-    cards.each_with_index do |c, i|
-      Array(c[:produce]).first(5).each_with_index do |pip, slot|
-        cx, cy = SPEC['slots']['produce'][slot]
-        svg data: pip_svg(pip, ICE_LIGHT), range: i, x: cx - PIP_SIZE / 2.0, y: cy - PIP_SIZE / 2.0, width: PIP_SIZE, height: PIP_SIZE
+      # 5. collector card number
+      if (cx = tbx['collector'])
+        text str: collector, range: idxs, font: "#{font_str(cx['font'])} #{pt.call(cx['font']['size'])}",
+             color: cx['font']['color'], x: cx['x'], y: cx['y'], width: cx['w'], height: cx['h'],
+             align: :right, valign: :middle
       end
-      Array(c[:consume]).first(5).each_with_index do |pip, slot|
-        cx, cy = SPEC['slots']['consume'][slot]
-        svg data: pip_svg(pip, ICE_LIGHT), range: i, x: cx - PIP_SIZE / 2.0, y: cy - PIP_SIZE / 2.0, width: PIP_SIZE, height: PIP_SIZE
+
+      # 6. entropy: the wrench vector
+      if (vb = tbx['vector'])
+        vec = cards.map { |c| Array(c[:traits]).first.to_s.upcase }
+        text str: vec, range: idxs, font: "#{font_str(vb['font'])} #{pt.call(vb['font']['size'])}",
+             color: vb['font']['color'], x: vb['x'], y: vb['y'], width: vb['w'], height: vb['h'],
+             align: :center, valign: :middle
       end
-      Array(c[:contributes]).first(3).each_with_index do |cs, slot|
-        color, shape = cs.to_s.split('/')
-        cx, cy = SPEC['slots']['contributes'][slot]
-        svg data: contrib_svg(color, shape), range: i, x: cx - CON_SIZE / 2.0, y: cy - CON_SIZE / 2.0, width: CON_SIZE, height: CON_SIZE
+
+      # 7. eval: par number
+      if (pb = tbx['par'])
+        par = cards.map { |c| c[:par].to_s }
+        text str: par, range: idxs, font: "#{font_str(pb['font'])} #{pt.call(pb['font']['size'])}",
+             color: pb['font']['color'], x: pb['x'], y: pb['y'], width: pb['w'], height: pb['h'],
+             align: :center, valign: :middle
+      end
+
+      slots = spec['slots'] || {}
+      # 8. per-card slot icons
+      idxs.each do |i|
+        c = cards[i]
+        # pip slot groups
+        { 'produce' => c[:produce], 'consume' => c[:consume], 'grants' => c[:grants] }.each do |grp, list|
+          next unless slots[grp]
+          Array(list).first(slots[grp].size).each_with_index do |pip, s|
+            cx, cy = slots[grp][s]
+            svg data: pip_svg(pip, ICE_LIGHT), range: i, x: cx - PIP_SIZE / 2.0, y: cy - PIP_SIZE / 2.0, width: PIP_SIZE, height: PIP_SIZE
+          end
+        end
+        # contribution slot groups
+        if slots['contributes']
+          Array(c[:contributes]).first(slots['contributes'].size).each_with_index do |cs, s|
+            color, shape = cs.to_s.split('/')
+            cx, cy = slots['contributes'][s]
+            svg data: contrib_svg(color, shape), range: i, x: cx - CON_SIZE / 2.0, y: cy - CON_SIZE / 2.0, width: CON_SIZE, height: CON_SIZE
+          end
+        end
+        # eval difficulty pips (fill `difficulty` of the small slots with the accent)
+        if slots['difficulty'] && c[:difficulty]
+          slots['difficulty'].first(c[:difficulty].to_i).each do |cx, cy|
+            svg data: disc_svg(accent), range: i, x: cx - 14, y: cy - 14, width: 28, height: 28
+          end
+        end
+        # eval hand strip — illustrative target marks
+        if slots['hand'] && c[:hand]
+          Array(c[:hand]).first(slots['hand'].size).each_with_index do |tok, s|
+            cx, cy = slots['hand'][s]
+            svg data: hand_svg(tok), range: i, x: cx - CON_SIZE / 2.0, y: cy - CON_SIZE / 2.0, width: CON_SIZE, height: CON_SIZE
+          end
+        end
+        # feature effect glyph (one large central slot)
+        if slots['effect'] && c[:effect]
+          cx, cy = slots['effect'][0]
+          es = 96
+          svg data: effect_svg(c[:effect], ICE_LIGHT), range: i, x: cx - es / 2.0, y: cy - es / 2.0, width: es, height: es
+        end
       end
     end
 

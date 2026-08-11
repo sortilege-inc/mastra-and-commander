@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="168" height="110" viewBox="476 623 168 110">
+
+<defs>
+  <linearGradient id="pwFill" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.9"></stop><stop offset="0.5" stop-color="#e8f3f9" stop-opacity="0.7"></stop><stop offset="1" stop-color="#bcd5e3" stop-opacity="0.66"></stop></linearGradient>
+  <filter id="pwSh" x="-12%" y="-18%" width="124%" height="136%"><feDropShadow dx="0" dy="3" stdDeviation="4.5" flood-color="#0d2c3a" flood-opacity="0.28"></feDropShadow></filter><linearGradient id="pwDeep" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#e9f4f9" stop-opacity="0.95"></stop><stop offset="1" stop-color="#a8c6d8" stop-opacity="0.9"></stop></linearGradient></defs>
+<g filter="url(#pwSh)"><path d="M486,649 L502,633 L618,633 L634,649 L634,707 L618,723 L502,723 L486,707 Z" fill="url(#pwFill)"></path></g>
+<path d="M486,649 L502,633 L618,633 L634,649 L634,707 L618,723 L502,723 L486,707 Z" fill="none" stroke="#2f4c60" stroke-opacity="0.6" stroke-width="2.2"></path>
+<path d="M491,650 L503,638 L617,638 L629,650 L629,706 L617,718 L503,718 L491,706 Z" fill="url(#pwDeep)" stroke="#d9a12a" stroke-opacity="0.8" stroke-width="1.6"></path>
+<path d="M502,720 H618" stroke="#d9a12a" stroke-width="2.4" stroke-opacity="0.9"></path>
+<text x="560" y="654" text-anchor="middle" font-family="&#39;Chakra Petch&#39;,&#39;Barlow Condensed&#39;,system-ui,sans-serif" font-weight="600" font-size="15" letter-spacing="4" fill="#5b7e94">PAR</text>
+</svg>

@@ -1,6 +1,6 @@
 {
-  "name": "Mastra & Commander — Ice Chrome / Operator",
-  "variant": "ice",
+  "name": "Mastra & Commander — Ice Chrome / Feature",
+  "variant": "feature",
   "family": "ice-chrome",
   "version": "3.0.0",
   "canvas": {
@@ -23,10 +23,10 @@
     "h": 1000,
     "radius": 28
   },
-  "accent": "#00c2d4",
-  "accentName": "cyan",
-  "cardType": "OPERATOR",
-  "renders": "produce (L,5) · consume (R,5) · contributes (B,3)",
+  "accent": "#6b57c9",
+  "accentName": "violet",
+  "cardType": "FEATURE",
+  "renders": "name · traits · one effect icon · rules",
   "layers": {
     "card-base": {
       "file": "layers/card-base.svg",
@@ -35,31 +35,6 @@
       "w": 825,
       "h": 1125,
       "z": 10
-    },
-    "art-placeholder": {
-      "file": "layers/art-placeholder.svg",
-      "x": 180,
-      "y": 228,
-      "w": 465,
-      "h": 505,
-      "z": 20
-    },
-    "aperture-mask": {
-      "file": "layers/aperture-mask.svg",
-      "x": 180,
-      "y": 228,
-      "w": 465,
-      "h": 505,
-      "z": 0,
-      "role": "mask"
-    },
-    "art-window": {
-      "file": "layers/art-window.svg",
-      "x": 160,
-      "y": 208,
-      "w": 505,
-      "h": 545,
-      "z": 30
     },
     "frame": {
       "file": "layers/frame.svg",
@@ -88,34 +63,26 @@
     "rules-panel": {
       "file": "layers/rules-panel.svg",
       "x": 158,
-      "y": 746,
+      "y": 428,
       "w": 509,
-      "h": 236,
+      "h": 554,
       "z": 50
     },
-    "rail-left": {
-      "file": "layers/rail-left.svg",
-      "x": 34,
-      "y": 354,
-      "w": 97,
-      "h": 372,
+    "effect-slot": {
+      "file": "layers/effect-slot.svg",
+      "x": 308.98,
+      "y": 206.48,
+      "w": 207.03,
+      "h": 207.03,
       "z": 60
     },
-    "rail-right": {
-      "file": "layers/rail-right.svg",
-      "x": 694,
-      "y": 354,
-      "w": 97,
-      "h": 372,
-      "z": 60
-    },
-    "rail-bottom": {
-      "file": "layers/rail-bottom.svg",
-      "x": 194,
-      "y": 979,
-      "w": 437,
-      "h": 87,
-      "z": 60
+    "no-entropy-tab": {
+      "file": "layers/no-entropy-tab.svg",
+      "x": 296,
+      "y": 968,
+      "w": 233,
+      "h": 82,
+      "z": 70
     },
     "type-overlay": {
       "file": "layers/type-overlay.svg",
@@ -124,7 +91,7 @@
       "w": 56,
       "h": 312,
       "z": 80,
-      "bakedText": "OPERATOR"
+      "bakedText": "FEATURE"
     },
     "collector": {
       "file": "layers/collector.svg",
@@ -160,9 +127,9 @@
     },
     "rules": {
       "x": 170,
-      "y": 758,
+      "y": 440,
       "w": 485,
-      "h": 212
+      "h": 530
     },
     "typeOverlay": {
       "x": 70,
@@ -176,88 +143,24 @@
       "w": 112,
       "h": 52
     },
-    "art": {
-      "x": 180,
-      "y": 228,
-      "w": 465,
-      "h": 505
+    "effectSlot": {
+      "x": 322.98387096774195,
+      "y": 220.48387096774195,
+      "w": 179.03225806451613,
+      "h": 179.03225806451613
     },
-    "railLeft": {
-      "x": 40,
-      "y": 360,
-      "w": 85,
-      "h": 360
-    },
-    "railRight": {
-      "x": 700,
-      "y": 360,
-      "w": 85,
-      "h": 360
-    },
-    "railBottom": {
-      "x": 200,
-      "y": 985,
-      "w": 425,
-      "h": 75
+    "noEntropyTab": {
+      "x": 306,
+      "y": 978,
+      "w": 213,
+      "h": 62
     }
   },
   "slots": {
-    "produce": [
-      [
-        82.5,
-        396.5
-      ],
-      [
-        82.5,
-        468.5
-      ],
-      [
-        82.5,
-        540.5
-      ],
-      [
-        82.5,
-        612.5
-      ],
-      [
-        82.5,
-        684.5
-      ]
-    ],
-    "consume": [
-      [
-        742.5,
-        396.5
-      ],
-      [
-        742.5,
-        468.5
-      ],
-      [
-        742.5,
-        540.5
-      ],
-      [
-        742.5,
-        612.5
-      ],
-      [
-        742.5,
-        684.5
-      ]
-    ],
-    "contributes": [
-      [
-        271.5,
-        1022.5
-      ],
+    "effect": [
       [
         412.5,
-        1022.5
-      ],
-      [
-        553.5,
-        1022.5
+        310
       ]
     ]
   },
@@ -267,6 +170,13 @@
     "chamfer": 14,
     "ringSize": 74,
     "maxIconBox": 53
+  },
+  "effectBacking": {
+    "shape": "chamfered-square",
+    "size": 150,
+    "chamfer": 34,
+    "ringSize": 179,
+    "maxIconBox": 128
   },
   "textBoxes": {
     "title": {
@@ -309,16 +219,16 @@
     },
     "rules": {
       "x": 190,
-      "y": 778,
+      "y": 460,
       "w": 445,
-      "h": 172,
+      "h": 490,
       "align": "left",
       "vAlign": "top",
       "font": {
         "family": "Barlow",
         "weight": 400,
-        "size": 26,
-        "leading": 33,
+        "size": 27,
+        "leading": 35,
         "tracking": 0,
         "color": "#1a3441"
       }
@@ -353,7 +263,7 @@
       "#16303c",
       "#0a1a22"
     ],
-    "accent": "#00c2d4",
+    "accent": "#6b57c9",
     "accentAlternates": {
       "cyan": "#00c2d4",
       "oxblood": "#7d1c2b",
@@ -365,8 +275,8 @@
     }
   },
   "notes": [
-    "Accent is a single hue (#00c2d4) on every hairline — a recolour is a find/replace on that value.",
-    "type-overlay.svg carries the card type \"OPERATOR\" as baked text rotated -90° (reads bottom-to-top from the bottom-left corner, ending just below the icon rail). Text colour #0d222c for contrast on the accent bar.",
+    "Accent is a single hue (#6b57c9) on every hairline — a recolour is a find/replace on that value.",
+    "type-overlay.svg carries the card type \"FEATURE\" as baked text rotated -90° (reads bottom-to-top from the bottom-left corner, ending just below the icon rail). Text colour #f4f9fc for contrast on the accent bar.",
     "collector.svg bakes the set mark glyph and the year 2026 (right-aligned); the card number is live text — textBoxes.collector, format NNN/TTT, right-aligned.",
     "traits are live text in textBoxes.traits: 1–5 words, uppercase, joined with \" · \" (maxWords 5). The box is inset to the clear run BETWEEN the subtitle plate's baked diamond pips — never widen it. Long strings shrink to fit (autoFit.minSize 14).",
     "Layer files are cropped to their own artwork; composite each at its x/y on the 825×1125 canvas.",

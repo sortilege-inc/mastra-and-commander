@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="497" height="56" viewBox="164 162 497 56">
+
+<defs>
+  <linearGradient id="spFill" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.9"></stop><stop offset="0.5" stop-color="#e8f3f9" stop-opacity="0.7"></stop><stop offset="1" stop-color="#bcd5e3" stop-opacity="0.66"></stop></linearGradient>
+  <filter id="spSh" x="-12%" y="-18%" width="124%" height="136%"><feDropShadow dx="0" dy="3" stdDeviation="4.5" flood-color="#0d2c3a" flood-opacity="0.28"></feDropShadow></filter></defs>
+<g filter="url(#spSh)"><path d="M183.54,181.14 L200,170 L625,170 L641.46,181.14 L648.54,198.86 L641,210 L184,210 L176.46,198.86 Z" fill="url(#spFill)"></path></g>
+<path d="M183.54,181.14 L200,170 L625,170 L641.46,181.14 L648.54,198.86 L641,210 L184,210 L176.46,198.86 Z" fill="none" stroke="#2f4c60" stroke-opacity="0.5" stroke-width="1.8"></path>
+<path d="M188.18,182.15 L201,174 L624,174 L636.82,182.15 L644.18,197.85 L639,206 L186,206 L180.82,197.85 Z" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.2"></path>
+<path d="M180,208 H645" stroke="#97a6b3" stroke-width="2.2" stroke-opacity="0.85"></path>
+<g fill="#97a6b3" fill-opacity="0.9"><rect x="194" y="186" width="8" height="8" transform="rotate(45 198 190)"></rect><rect x="623" y="186" width="8" height="8" transform="rotate(45 627 190)"></rect></g>
+</svg>

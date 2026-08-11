@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="116" height="80" viewBox="596 80 116 80">
+
+<defs>
+  <linearGradient id="dtFill" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.9"></stop><stop offset="0.5" stop-color="#e8f3f9" stop-opacity="0.7"></stop><stop offset="1" stop-color="#bcd5e3" stop-opacity="0.66"></stop></linearGradient>
+  <filter id="dtSh" x="-12%" y="-18%" width="124%" height="136%"><feDropShadow dx="0" dy="3" stdDeviation="4.5" flood-color="#0d2c3a" flood-opacity="0.28"></feDropShadow></filter><linearGradient id="skSocket" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#254a5a" stop-opacity="0.55"></stop><stop offset="1" stop-color="#0d222c" stop-opacity="0.72"></stop></linearGradient></defs>
+<g filter="url(#dtSh)"><path d="M604,100 L616,88 L692,88 L704,100 L704,140 L692,152 L616,152 L604,140 Z" fill="url(#dtFill)"></path></g>
+<path d="M604,100 L616,88 L692,88 L704,100 L704,140 L692,152 L616,152 L604,140 Z" fill="none" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="2"></path>
+<path d="M608,101 L617,92 L691,92 L700,101 L700,139 L691,148 L617,148 L608,139 Z" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.3"></path>
+<text x="654" y="106" text-anchor="middle" font-family="&#39;Chakra Petch&#39;,&#39;Barlow Condensed&#39;,system-ui,sans-serif" font-weight="600" font-size="12" letter-spacing="3.5" fill="#5b7e94">DIFF</text>
+<g><path d="M608,119 L615,112 L629,112 L636,119 L636,133 L629,140 L615,140 L608,133 Z" fill="url(#skSocket)" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="1.6"></path>
+  <path d="M612,120 L616,116 L628,116 L632,120 L632,132 L628,136 L616,136 L612,132 Z" fill="none" stroke="#d9a12a" stroke-opacity="0.75" stroke-width="1.3"></path></g><g><path d="M640,119 L647,112 L661,112 L668,119 L668,133 L661,140 L647,140 L640,133 Z" fill="url(#skSocket)" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="1.6"></path>
+  <path d="M644,120 L648,116 L660,116 L664,120 L664,132 L660,136 L648,136 L644,132 Z" fill="none" stroke="#d9a12a" stroke-opacity="0.75" stroke-width="1.3"></path></g><g><path d="M672,119 L679,112 L693,112 L700,119 L700,133 L693,140 L679,140 L672,133 Z" fill="url(#skSocket)" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="1.6"></path>
+  <path d="M676,120 L680,116 L692,116 L696,120 L696,132 L692,136 L680,136 L676,132 Z" fill="none" stroke="#d9a12a" stroke-opacity="0.75" stroke-width="1.3"></path></g>
+<path d="M616,149.5 H692" stroke="#d9a12a" stroke-width="2.2" stroke-opacity="0.9"></path>
+</svg>

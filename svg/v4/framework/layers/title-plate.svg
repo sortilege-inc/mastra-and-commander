@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="529" height="92" viewBox="148 84 529 92">
+
+<defs>
+  <linearGradient id="tpFill" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.9"></stop><stop offset="0.5" stop-color="#e8f3f9" stop-opacity="0.7"></stop><stop offset="1" stop-color="#bcd5e3" stop-opacity="0.66"></stop></linearGradient>
+  <filter id="tpSh" x="-12%" y="-18%" width="124%" height="136%"><feDropShadow dx="0" dy="3" stdDeviation="4.5" flood-color="#0d2c3a" flood-opacity="0.28"></feDropShadow></filter><linearGradient id="tpCap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dcecf4" stop-opacity="0.95"></stop><stop offset="1" stop-color="#8fb3c6" stop-opacity="0.8"></stop></linearGradient></defs>
+<g filter="url(#tpSh)"><path d="M160,115.72 L179.72,96 L645.28,96 L665,115.72 L665,144.28 L645.28,164 L179.72,164 L160,144.28 Z" fill="url(#tpFill)"></path></g>
+<path d="M160,115.72 L179.72,96 L645.28,96 L665,115.72 L665,144.28 L645.28,164 L179.72,164 L160,144.28 Z" fill="none" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="2"></path>
+<path d="M164,116.72 L180.72,100 L644.28,100 L661,116.72 L661,143.28 L644.28,160 L180.72,160 L164,143.28 Z" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.4"></path>
+<g fill="url(#tpCap)" stroke="#2f4c60" stroke-opacity="0.4" stroke-width="1.2">
+  <path d="M160,104 L168,96 L198,96 L203.95,103.73 L190.05,156.27 L180,164 L168,164 L160,156 Z"></path><path d="M657,96 L665,104 L665,156 L657,164 L645,164 L634.95,156.27 L621.05,103.73 L627,96 Z"></path></g>
+  <path d="M170,116.83 L181.83,105 L643.17,105 L655,116.83 L655,143.17 L643.17,155 L181.83,155 L170,143.17 Z" fill="none" stroke="#97a6b3" stroke-opacity="0.6" stroke-width="1.3"></path>
+  <g fill="#97a6b3" fill-opacity="0.6"><rect x="388.5" y="99" width="48" height="4"></rect><rect x="388.5" y="157" width="48" height="4"></rect></g>
+<path d="M178,161.5 H647" stroke="#97a6b3" stroke-width="2.4" stroke-opacity="0.9"></path>
+<path d="M170,99.5 H655" stroke="#ffffff" stroke-width="2" stroke-opacity="0.75"></path>
+<g fill="#97a6b3" fill-opacity="0.85"><rect x="170" y="125" width="4" height="10"></rect><rect x="651" y="125" width="4" height="10"></rect></g>
+</svg>

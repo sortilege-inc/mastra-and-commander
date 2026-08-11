@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="97" height="372" viewBox="34 354 97 372">
+
+<defs>
+  <linearGradient id="rlPlate" x1="0" y1="0" x2="1" y2="0.6"><stop offset="0" stop-color="#ffffff" stop-opacity="0.8"></stop><stop offset="0.55" stop-color="#dceaf3" stop-opacity="0.62"></stop><stop offset="1" stop-color="#a9c6d8" stop-opacity="0.66"></stop></linearGradient>
+  <linearGradient id="skSocket" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#254a5a" stop-opacity="0.55"></stop><stop offset="1" stop-color="#0d222c" stop-opacity="0.72"></stop></linearGradient>
+  <filter id="rlSh" x="-20%" y="-10%" width="140%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0d2c3a" flood-opacity="0.3"></feDropShadow></filter></defs>
+<g filter="url(#rlSh)"><path d="M40,376 L56,360 L109,360 L125,376 L125,704 L109,720 L56,720 L40,704 Z" fill="url(#rlPlate)"></path></g>
+<path d="M40,376 L56,360 L109,360 L125,376 L125,704 L109,720 L56,720 L40,704 Z" fill="none" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="2"></path>
+<path d="M44,377 L57,364 L108,364 L121,377 L121,703 L108,716 L57,716 L44,703 Z" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="1.4"></path>
+<path d="M82.5,372 V359.5 M82.5,721.5 V708" stroke="#00c2d4" stroke-opacity="0.55" stroke-width="2"></path><path d="M82.5,433.5 V431.5" stroke="#00c2d4" stroke-opacity="0.4" stroke-width="2"></path><path d="M82.5,505.5 V503.5" stroke="#00c2d4" stroke-opacity="0.4" stroke-width="2"></path><path d="M82.5,577.5 V575.5" stroke="#00c2d4" stroke-opacity="0.4" stroke-width="2"></path><path d="M82.5,649.5 V647.5" stroke="#00c2d4" stroke-opacity="0.4" stroke-width="2"></path>
+<g>
+    <path d="M45.5,376.5 L62.5,359.5 L102.5,359.5 L119.5,376.5 L119.5,416.5 L102.5,433.5 L62.5,433.5 L45.5,416.5 Z" fill="#ffffff" fill-opacity="0.42" stroke="#2f4c60" stroke-opacity="0.4" stroke-width="1.4"></path>
+    <path d="M51.5,379.5 L65.5,365.5 L99.5,365.5 L113.5,379.5 L113.5,413.5 L99.5,427.5 L65.5,427.5 L51.5,413.5 Z" fill="url(#skSocket)" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="1.8"></path>
+    <path d="M56,381.2 L67.2,370 L97.8,370 L109,381.2 L109,411.8 L97.8,423 L67.2,423 L56,411.8 Z" fill="none" stroke="#00c2d4" stroke-opacity="0.7" stroke-width="1.4"></path>
+    <g fill="#00c2d4" fill-opacity="0.85"><rect x="80" y="354.5" width="5" height="5"></rect><rect x="80" y="433.5" width="5" height="5"></rect></g></g>
+<g>
+    <path d="M45.5,448.5 L62.5,431.5 L102.5,431.5 L119.5,448.5 L119.5,488.5 L102.5,505.5 L62.5,505.5 L45.5,488.5 Z" fill="#ffffff" fill-opacity="0.42" stroke="#2f4c60" stroke-opacity="0.4" stroke-width="1.4"></path>
+    <path d="M51.5,451.5 L65.5,437.5 L99.5,437.5 L113.5,451.5 L113.5,485.5 L99.5,499.5 L65.5,499.5 L51.5,485.5 Z" fill="url(#skSocket)" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="1.8"></path>
+    <path d="M56,453.2 L67.2,442 L97.8,442 L109,453.2 L109,483.8 L97.8,495 L67.2,495 L56,483.8 Z" fill="none" stroke="#00c2d4" stroke-opacity="0.7" stroke-width="1.4"></path>
+    <g fill="#00c2d4" fill-opacity="0.85"><rect x="80" y="426.5" width="5" height="5"></rect><rect x="80" y="505.5" width="5" height="5"></rect></g></g>
+<g>
+    <path d="M45.5,520.5 L62.5,503.5 L102.5,503.5 L119.5,520.5 L119.5,560.5 L102.5,577.5 L62.5,577.5 L45.5,560.5 Z" fill="#ffffff" fill-opacity="0.42" stroke="#2f4c60" stroke-opacity="0.4" stroke-width="1.4"></path>
+    <path d="M51.5,523.5 L65.5,509.5 L99.5,509.5 L113.5,523.5 L113.5,557.5 L99.5,571.5 L65.5,571.5 L51.5,557.5 Z" fill="url(#skSocket)" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="1.8"></path>
+    <path d="M56,525.2 L67.2,514 L97.8,514 L109,525.2 L109,555.8 L97.8,567 L67.2,567 L56,555.8 Z" fill="none" stroke="#00c2d4" stroke-opacity="0.7" stroke-width="1.4"></path>
+    <g fill="#00c2d4" fill-opacity="0.85"><rect x="80" y="498.5" width="5" height="5"></rect><rect x="80" y="577.5" width="5" height="5"></rect></g></g>
+<g>
+    <path d="M45.5,592.5 L62.5,575.5 L102.5,575.5 L119.5,592.5 L119.5,632.5 L102.5,649.5 L62.5,649.5 L45.5,632.5 Z" fill="#ffffff" fill-opacity="0.42" stroke="#2f4c60" stroke-opacity="0.4" stroke-width="1.4"></path>
+    <path d="M51.5,595.5 L65.5,581.5 L99.5,581.5 L113.5,595.5 L113.5,629.5 L99.5,643.5 L65.5,643.5 L51.5,629.5 Z" fill="url(#skSocket)" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="1.8"></path>
+    <path d="M56,597.2 L67.2,586 L97.8,586 L109,597.2 L109,627.8 L97.8,639 L67.2,639 L56,627.8 Z" fill="none" stroke="#00c2d4" stroke-opacity="0.7" stroke-width="1.4"></path>
+    <g fill="#00c2d4" fill-opacity="0.85"><rect x="80" y="570.5" width="5" height="5"></rect><rect x="80" y="649.5" width="5" height="5"></rect></g></g>
+<g>
+    <path d="M45.5,664.5 L62.5,647.5 L102.5,647.5 L119.5,664.5 L119.5,704.5 L102.5,721.5 L62.5,721.5 L45.5,704.5 Z" fill="#ffffff" fill-opacity="0.42" stroke="#2f4c60" stroke-opacity="0.4" stroke-width="1.4"></path>
+    <path d="M51.5,667.5 L65.5,653.5 L99.5,653.5 L113.5,667.5 L113.5,701.5 L99.5,715.5 L65.5,715.5 L51.5,701.5 Z" fill="url(#skSocket)" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="1.8"></path>
+    <path d="M56,669.2 L67.2,658 L97.8,658 L109,669.2 L109,699.8 L97.8,711 L67.2,711 L56,699.8 Z" fill="none" stroke="#00c2d4" stroke-opacity="0.7" stroke-width="1.4"></path>
+    <g fill="#00c2d4" fill-opacity="0.85"><rect x="80" y="642.5" width="5" height="5"></rect><rect x="80" y="721.5" width="5" height="5"></rect></g></g>
+</svg>

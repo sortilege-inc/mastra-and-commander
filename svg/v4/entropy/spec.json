@@ -1,6 +1,6 @@
 {
-  "name": "Mastra & Commander — Ice Chrome / Operator",
-  "variant": "ice",
+  "name": "Mastra & Commander — Ice Chrome / Entropy",
+  "variant": "entropy",
   "family": "ice-chrome",
   "version": "3.0.0",
   "canvas": {
@@ -23,10 +23,10 @@
     "h": 1000,
     "radius": 28
   },
-  "accent": "#00c2d4",
-  "accentName": "cyan",
-  "cardType": "OPERATOR",
-  "renders": "produce (L,5) · consume (R,5) · contributes (B,3)",
+  "accent": "#7d1c2b",
+  "accentName": "oxblood",
+  "cardType": "ENTROPY",
+  "renders": "name · traits · vector · rules",
   "layers": {
     "card-base": {
       "file": "layers/card-base.svg",
@@ -71,51 +71,35 @@
     },
     "title-plate": {
       "file": "layers/title-plate.svg",
-      "x": 138,
+      "x": 298,
       "y": 73,
-      "w": 549,
+      "w": 389,
       "h": 94,
       "z": 50
     },
     "subtitle-plate": {
       "file": "layers/subtitle-plate.svg",
-      "x": 162,
+      "x": 142,
       "y": 150,
-      "w": 501,
+      "w": 541,
       "h": 62,
       "z": 50
     },
     "rules-panel": {
       "file": "layers/rules-panel.svg",
-      "x": 158,
+      "x": 110,
       "y": 746,
-      "w": 509,
-      "h": 236,
+      "w": 617,
+      "h": 254,
       "z": 50
     },
-    "rail-left": {
-      "file": "layers/rail-left.svg",
-      "x": 34,
-      "y": 354,
-      "w": 97,
-      "h": 372,
-      "z": 60
-    },
-    "rail-right": {
-      "file": "layers/rail-right.svg",
-      "x": 694,
-      "y": 354,
-      "w": 97,
-      "h": 372,
-      "z": 60
-    },
-    "rail-bottom": {
-      "file": "layers/rail-bottom.svg",
-      "x": 194,
-      "y": 979,
-      "w": 437,
-      "h": 87,
-      "z": 60
+    "vector-badge": {
+      "file": "layers/vector-badge.svg",
+      "x": 90,
+      "y": 70,
+      "w": 216,
+      "h": 84,
+      "z": 70
     },
     "type-overlay": {
       "file": "layers/type-overlay.svg",
@@ -124,7 +108,7 @@
       "w": 56,
       "h": 312,
       "z": 80,
-      "bakedText": "OPERATOR"
+      "bakedText": "ENTROPY"
     },
     "collector": {
       "file": "layers/collector.svg",
@@ -147,22 +131,22 @@
   },
   "zones": {
     "title": {
-      "x": 150,
+      "x": 310,
       "y": 85,
-      "w": 525,
+      "w": 365,
       "h": 70
     },
     "traits": {
-      "x": 170,
+      "x": 150,
       "y": 158,
-      "w": 485,
+      "w": 525,
       "h": 46
     },
     "rules": {
-      "x": 170,
+      "x": 122,
       "y": 758,
-      "w": 485,
-      "h": 212
+      "w": 593,
+      "h": 230
     },
     "typeOverlay": {
       "x": 70,
@@ -182,83 +166,18 @@
       "w": 465,
       "h": 505
     },
-    "railLeft": {
-      "x": 40,
-      "y": 360,
-      "w": 85,
-      "h": 360
-    },
-    "railRight": {
-      "x": 700,
-      "y": 360,
-      "w": 85,
-      "h": 360
-    },
-    "railBottom": {
-      "x": 200,
-      "y": 985,
-      "w": 425,
-      "h": 75
+    "vectorBadge": {
+      "x": 100,
+      "y": 80,
+      "w": 196,
+      "h": 64
     }
   },
-  "slots": {
-    "produce": [
-      [
-        82.5,
-        396.5
-      ],
-      [
-        82.5,
-        468.5
-      ],
-      [
-        82.5,
-        540.5
-      ],
-      [
-        82.5,
-        612.5
-      ],
-      [
-        82.5,
-        684.5
-      ]
-    ],
-    "consume": [
-      [
-        742.5,
-        396.5
-      ],
-      [
-        742.5,
-        468.5
-      ],
-      [
-        742.5,
-        540.5
-      ],
-      [
-        742.5,
-        612.5
-      ],
-      [
-        742.5,
-        684.5
-      ]
-    ],
-    "contributes": [
-      [
-        271.5,
-        1022.5
-      ],
-      [
-        412.5,
-        1022.5
-      ],
-      [
-        553.5,
-        1022.5
-      ]
+  "slots": {},
+  "anchors": {
+    "vector": [
+      198,
+      112
     ]
   },
   "slotBacking": {
@@ -270,25 +189,41 @@
   },
   "textBoxes": {
     "title": {
-      "x": 170,
+      "x": 325,
       "y": 95,
-      "w": 485,
+      "w": 335,
       "h": 52,
       "align": "center",
       "vAlign": "middle",
       "font": {
         "family": "Chakra Petch",
         "weight": 700,
-        "size": 40,
+        "size": 34,
         "tracking": 1.5,
         "transform": "uppercase",
         "color": "#14323f"
       }
     },
+    "vector": {
+      "x": 112,
+      "y": 92,
+      "w": 172,
+      "h": 40,
+      "align": "center",
+      "vAlign": "middle",
+      "font": {
+        "family": "Chakra Petch",
+        "weight": 700,
+        "size": 22,
+        "tracking": 3,
+        "transform": "uppercase",
+        "color": "#7d1c2b"
+      }
+    },
     "traits": {
-      "x": 204,
+      "x": 184,
       "y": 166,
-      "w": 417,
+      "w": 457,
       "h": 30,
       "align": "center",
       "vAlign": "middle",
@@ -308,17 +243,17 @@
       }
     },
     "rules": {
-      "x": 190,
+      "x": 142,
       "y": 778,
-      "w": 445,
-      "h": 172,
+      "w": 553,
+      "h": 190,
       "align": "left",
       "vAlign": "top",
       "font": {
         "family": "Barlow",
         "weight": 400,
-        "size": 26,
-        "leading": 33,
+        "size": 27,
+        "leading": 34,
         "tracking": 0,
         "color": "#1a3441"
       }
@@ -353,7 +288,7 @@
       "#16303c",
       "#0a1a22"
     ],
-    "accent": "#00c2d4",
+    "accent": "#7d1c2b",
     "accentAlternates": {
       "cyan": "#00c2d4",
       "oxblood": "#7d1c2b",
@@ -365,8 +300,8 @@
     }
   },
   "notes": [
-    "Accent is a single hue (#00c2d4) on every hairline — a recolour is a find/replace on that value.",
-    "type-overlay.svg carries the card type \"OPERATOR\" as baked text rotated -90° (reads bottom-to-top from the bottom-left corner, ending just below the icon rail). Text colour #0d222c for contrast on the accent bar.",
+    "Accent is a single hue (#7d1c2b) on every hairline — a recolour is a find/replace on that value.",
+    "type-overlay.svg carries the card type \"ENTROPY\" as baked text rotated -90° (reads bottom-to-top from the bottom-left corner, ending just below the icon rail). Text colour #f4f9fc for contrast on the accent bar.",
     "collector.svg bakes the set mark glyph and the year 2026 (right-aligned); the card number is live text — textBoxes.collector, format NNN/TTT, right-aligned.",
     "traits are live text in textBoxes.traits: 1–5 words, uppercase, joined with \" · \" (maxWords 5). The box is inset to the clear run BETWEEN the subtitle plate's baked diamond pips — never widen it. Long strings shrink to fit (autoFit.minSize 14).",
     "Layer files are cropped to their own artwork; composite each at its x/y on the 825×1125 canvas.",

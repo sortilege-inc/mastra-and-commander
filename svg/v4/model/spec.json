@@ -1,6 +1,6 @@
 {
-  "name": "Mastra & Commander — Ice Chrome / Operator",
-  "variant": "ice",
+  "name": "Mastra & Commander — Ice Chrome / Model",
+  "variant": "model",
   "family": "ice-chrome",
   "version": "3.0.0",
   "canvas": {
@@ -23,10 +23,10 @@
     "h": 1000,
     "radius": 28
   },
-  "accent": "#00c2d4",
-  "accentName": "cyan",
-  "cardType": "OPERATOR",
-  "renders": "produce (L,5) · consume (R,5) · contributes (B,3)",
+  "accent": "#3f7fd0",
+  "accentName": "indigo",
+  "cardType": "MODEL",
+  "renders": "name · traits · grants (≤3) · tier marker · rules",
   "layers": {
     "card-base": {
       "file": "layers/card-base.svg",
@@ -73,7 +73,7 @@
       "file": "layers/title-plate.svg",
       "x": 138,
       "y": 73,
-      "w": 549,
+      "w": 479,
       "h": 94,
       "z": 50
     },
@@ -81,7 +81,7 @@
       "file": "layers/subtitle-plate.svg",
       "x": 162,
       "y": 150,
-      "w": 501,
+      "w": 471,
       "h": 62,
       "z": 50
     },
@@ -93,29 +93,21 @@
       "h": 236,
       "z": 50
     },
-    "rail-left": {
-      "file": "layers/rail-left.svg",
+    "grants-rail": {
+      "file": "layers/grants-rail.svg",
       "x": 34,
-      "y": 354,
+      "y": 426,
       "w": 97,
-      "h": 372,
+      "h": 228,
       "z": 60
     },
-    "rail-right": {
-      "file": "layers/rail-right.svg",
-      "x": 694,
-      "y": 354,
-      "w": 97,
-      "h": 372,
-      "z": 60
-    },
-    "rail-bottom": {
-      "file": "layers/rail-bottom.svg",
-      "x": 194,
-      "y": 979,
-      "w": 437,
-      "h": 87,
-      "z": 60
+    "tier-marker": {
+      "file": "layers/tier-marker.svg",
+      "x": 610,
+      "y": 80,
+      "w": 102,
+      "h": 80,
+      "z": 70
     },
     "type-overlay": {
       "file": "layers/type-overlay.svg",
@@ -124,7 +116,7 @@
       "w": 56,
       "h": 312,
       "z": 80,
-      "bakedText": "OPERATOR"
+      "bakedText": "MODEL"
     },
     "collector": {
       "file": "layers/collector.svg",
@@ -149,13 +141,13 @@
     "title": {
       "x": 150,
       "y": 85,
-      "w": 525,
+      "w": 455,
       "h": 70
     },
     "traits": {
       "x": 170,
       "y": 158,
-      "w": 485,
+      "w": 455,
       "h": 46
     },
     "rules": {
@@ -182,31 +174,21 @@
       "w": 465,
       "h": 505
     },
-    "railLeft": {
+    "grantsRail": {
       "x": 40,
-      "y": 360,
+      "y": 432,
       "w": 85,
-      "h": 360
+      "h": 216
     },
-    "railRight": {
-      "x": 700,
-      "y": 360,
-      "w": 85,
-      "h": 360
-    },
-    "railBottom": {
-      "x": 200,
-      "y": 985,
-      "w": 425,
-      "h": 75
+    "tierMarker": {
+      "x": 618,
+      "y": 88,
+      "w": 86,
+      "h": 64
     }
   },
   "slots": {
-    "produce": [
-      [
-        82.5,
-        396.5
-      ],
+    "grants": [
       [
         82.5,
         468.5
@@ -218,46 +200,6 @@
       [
         82.5,
         612.5
-      ],
-      [
-        82.5,
-        684.5
-      ]
-    ],
-    "consume": [
-      [
-        742.5,
-        396.5
-      ],
-      [
-        742.5,
-        468.5
-      ],
-      [
-        742.5,
-        540.5
-      ],
-      [
-        742.5,
-        612.5
-      ],
-      [
-        742.5,
-        684.5
-      ]
-    ],
-    "contributes": [
-      [
-        271.5,
-        1022.5
-      ],
-      [
-        412.5,
-        1022.5
-      ],
-      [
-        553.5,
-        1022.5
       ]
     ]
   },
@@ -272,14 +214,14 @@
     "title": {
       "x": 170,
       "y": 95,
-      "w": 485,
+      "w": 415,
       "h": 52,
       "align": "center",
       "vAlign": "middle",
       "font": {
         "family": "Chakra Petch",
         "weight": 700,
-        "size": 40,
+        "size": 36,
         "tracking": 1.5,
         "transform": "uppercase",
         "color": "#14323f"
@@ -288,7 +230,7 @@
     "traits": {
       "x": 204,
       "y": 166,
-      "w": 417,
+      "w": 387,
       "h": 30,
       "align": "center",
       "vAlign": "middle",
@@ -353,7 +295,7 @@
       "#16303c",
       "#0a1a22"
     ],
-    "accent": "#00c2d4",
+    "accent": "#3f7fd0",
     "accentAlternates": {
       "cyan": "#00c2d4",
       "oxblood": "#7d1c2b",
@@ -365,8 +307,8 @@
     }
   },
   "notes": [
-    "Accent is a single hue (#00c2d4) on every hairline — a recolour is a find/replace on that value.",
-    "type-overlay.svg carries the card type \"OPERATOR\" as baked text rotated -90° (reads bottom-to-top from the bottom-left corner, ending just below the icon rail). Text colour #0d222c for contrast on the accent bar.",
+    "Accent is a single hue (#3f7fd0) on every hairline — a recolour is a find/replace on that value.",
+    "type-overlay.svg carries the card type \"MODEL\" as baked text rotated -90° (reads bottom-to-top from the bottom-left corner, ending just below the icon rail). Text colour #f4f9fc for contrast on the accent bar.",
     "collector.svg bakes the set mark glyph and the year 2026 (right-aligned); the card number is live text — textBoxes.collector, format NNN/TTT, right-aligned.",
     "traits are live text in textBoxes.traits: 1–5 words, uppercase, joined with \" · \" (maxWords 5). The box is inset to the clear run BETWEEN the subtitle plate's baked diamond pips — never widen it. Long strings shrink to fit (autoFit.minSize 14).",
     "Layer files are cropped to their own artwork; composite each at its x/y on the 825×1125 canvas.",

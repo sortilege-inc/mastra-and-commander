@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="124" height="56" viewBox="630 1006 124 56">
+
+<path d="M636,1012 H748" stroke="#d9a12a" stroke-width="2.2" stroke-opacity="0.9"></path>
+<path d="M636,1015.5 H748" stroke="#ffffff" stroke-width="1.4" stroke-opacity="0.7"></path>
+<g transform="translate(679,1043)">
+  <path d="M-11,-6.38 L-6.38,-11 L6.38,-11 L11,-6.38 L11,6.38 L6.38,11 L-6.38,11 L-11,6.38 Z" fill="none" stroke="#d9a12a" stroke-opacity="0.95" stroke-width="2"></path>
+  <path d="M0,-5.5 L5.5,0 L0,5.5 L-5.5,0 Z" fill="#d9a12a" fill-opacity="0.9"></path>
+  <path d="M-11,-11 L-6,-11 M11,11 L6,11" stroke="#d9a12a" stroke-opacity="0.7" stroke-width="1.6"></path></g>
+<text x="748" y="1050" text-anchor="end" font-family="&#39;Chakra Petch&#39;,&#39;Barlow Condensed&#39;,system-ui,sans-serif" font-weight="600" font-size="19" letter-spacing="1.5" fill="#2f4c60" fill-opacity="0.85">2026</text>
+</svg>

@@ -10,19 +10,23 @@ Design docs (living, status-tagged) are in [`cards/`](cards/):
 - [`frame-design-brief.md`](cards/frame-design-brief.md), [`art-direction.md`](cards/art-direction.md) — frame + art direction.
 - [`squib-rebuild-brief.md`](cards/squib-rebuild-brief.md) — the brief this pipeline was built from.
 
-## The frame — "Ice Chrome" (`svg/v4/ice/`)
+## The frames — "Ice Chrome" family (`svg/v4/`)
 
-Translucent glassy sci-fi frame (Netrunner-meets-Arkham, but bright/crisp), on an
-**825×1125 @ 300dpi** canvas (2.5×3.5in + bleed). Layered SVGs + `spec.json`
-(layer origins/z-order, slot centres, text-box fonts, palette). The card face has:
+Translucent glassy sci-fi frames (Netrunner-meets-Arkham, bright/crisp) on an
+**825×1125 @ 300dpi** canvas. **One variant per card kind** (`svg/v4/<id>/` with its
+own `spec.json`; `svg/v4/index.json` is the manifest). Each shares the chrome material +
+a **subtitle traits plate**, a rotated **type-overlay** bar, and a **collector** footer,
+and differs by **accent tone** + slot groups:
 
-- **Title** (top) · **art window** (beveled octagon) · **rules panel** (lower).
-- **Produce** — left rail, ≤5 pip slots (output currencies).
-- **Consume / cost** — right rail, ≤5 pip slots (input cost).
-- **Contributes** — bottom rail, ≤3 slots (color + shape; the Eval currency).
-- **Traits** — slim type line atop the rules panel.
-
-No stat badge / set-symbol / type bar (removed with the old Lens frame).
+| variant | kind | accent | slots |
+|---|---|---|---|
+| `ice` | Operator | cyan | produce (L,5) · consume (R,5) · contributes (B,3) |
+| `entropy` | Entropy | oxblood | vector badge (no rails) |
+| `eval` | Objective | gold | hand (≤5) · difficulty (1–3) · par |
+| `feature` | Feature | violet | one effect slot · "NO ENTROPY" tab |
+| `equip` | Equipment | teal | grants (≤3) |
+| `model` | Model | indigo | grants (≤3) · tier marker |
+| `framework` | Framework | platinum | Mastra prestige frame |
 
 ## Card content — `cards/cards.yml`
 
@@ -59,8 +63,13 @@ Outputs (git-ignored) land in `output/`: `card_NN.png` (825×1125) + `mastra_car
 
 ## Status / next
 
-- Rendering **Operator cards** only. Entropy / Eval / Feature / Model / Commander
-  cards need their own layouts (different faces) — a follow-up pass.
+- **All 43 cards render** across the 7 variants (18 operator, 10 entropy, 6 eval,
+  4 feature, 2 equipment, 2 model, 1 framework), with per-kind content: operator
+  rails, eval **hand strip + par + difficulty**, feature **effect glyph**, entropy
+  **vector**, equipment/model **grants**.
+- Eval hand marks use a small token grammar (`color/shape`, `color/*`, `*/shape`,
+  `!color`, `*`); feature effects are `draw` / `shield` / `grant/PIP`.
+- **Follow-ups:** long titles (e.g. "GPU Unavailability") need title auto-shrink.
 - Per-card **art** not wired yet (all cards use the placeholder art window); real art
   drops into `art/` and gets clipped to the octagon aperture.
 - Card content is **placeholder** (`TEST-` set) pending the owner's card-design pass.
