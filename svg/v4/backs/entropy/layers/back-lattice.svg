@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="825" height="1125" viewBox="0 0 825 1125">
 <g transform="translate(412.5,562.5)">
-<path d="M-184,-236 L184,-236 L236,-184 L236,184 L184,236 L-184,236 L-236,184 L-236,-184 Z" fill="none" stroke="#c4384e" stroke-opacity="0.55" stroke-width="1.8" stroke-dasharray="46 14 8 14"></path>
-<path d="M-236,-302 L236,-302 L302,-236 L302,236 L236,302 L-236,302 L-302,236 L-302,-236 Z" fill="none" stroke="#8ea7b6" stroke-opacity="0.16" stroke-width="1" stroke-dasharray="30 22"></path>
-<path d="M-296,-380 L296,-380 L380,-296 L380,296 L296,380 L-296,380 L-380,296 L-380,-296 Z" fill="none" stroke="#c4384e" stroke-opacity="0.32" stroke-width="1.5" stroke-dasharray="120 26 10 26"></path>
 <g id="halfOrn">
+  <path d="M0,-236 L184,-236 L236,-184 L236,184 L184,236 L0,236" fill="none" stroke="#c4384e" stroke-opacity="0.55" stroke-width="1.8" stroke-dasharray="46 14 8 14"></path>
+  <path d="M0,-302 L236,-302 L302,-236 L302,236 L236,302 L0,302" fill="none" stroke="#8ea7b6" stroke-opacity="0.16" stroke-width="1" stroke-dasharray="30 22"></path>
+  <path d="M0,-380 L296,-380 L380,-296 L380,296 L296,380 L0,380" fill="none" stroke="#c4384e" stroke-opacity="0.32" stroke-width="1.5" stroke-dasharray="120 26 10 26"></path>
   <g fill="none" stroke="#c4384e" stroke-opacity="0.5" stroke-width="1.6">
     <path d="M0,-236 L-16,-286 L10,-330 L-8,-402 L-70,-460"></path>
     <path d="M118,-206 L166,-256 L152,-296 H262 L318,-350"></path>

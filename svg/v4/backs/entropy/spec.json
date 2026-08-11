@@ -29,7 +29,7 @@
   "appliesTo": [
     "entropy"
   ],
-  "symmetry": "180° rotational about 412.5,562.5 — no orientation tell",
+  "symmetry": "180° rotational about 412.5,562.5 on every printing layer — grounds are centre-out radial, ornament and rings are half-paths re-used rotated, the bezel band is radial with a zero-offset shadow. No directional lighting anywhere: a face-down card gives away no orientation.",
   "layers": {
     "back-base": {
       "file": "layers/back-base.svg",
@@ -107,8 +107,10 @@
     "Backs carry no live text — every glyph is baked.",
     "Layout is 180° rotationally symmetric about the card centre so a card in hand gives away nothing about its orientation.",
     "back-wordmark.svg draws the lockup once inside #wmHalf and re-uses it rotated 180°; edit the group, both copies follow.",
-    "back-lattice.svg does the same with #halfOrn for the circuit ornament.",
+    "back-lattice.svg draws the ornament AND the concentric rings once inside #halfOrn as half-paths (top vertex → bottom vertex), then re-uses them rotated 180°; back-medallion.svg does the same with #mdRings. Never draw a ring as a full closed path with a dasharray — the dash phase would not survive the rotation and becomes an orientation tell.",
     "Deep well ground (#1d3b49 → #08151c) with the oxblood set mark; glitch slices and a fracture path bite through the medallion, matching the entropy front bezel.",
-    "Used for Entropy cards only."
-  ]
+    "Used for Entropy cards only.",
+    "No printing layer may carry a diagonal gradient or an offset drop shadow — both survive a 180° rotation as their own reverse and become an orientation tell. Grounds and the bezel band use centre-out radial gradients; the frame shadow is dy=0."
+  ],
+  "accentLift": "#c4384e"
 }
