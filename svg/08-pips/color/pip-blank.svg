@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" data-layer="pip">
-<title>Cost pip — Blank / numeric</title><desc>Provisional colour — #638690. Awaiting Mastra palette.</desc>
-<circle cx="100" cy="100" r="96" fill="#638690"></circle>
-<circle cx="100" cy="100" r="80" fill="#F0EBDD"></circle>
-<circle cx="100" cy="100" r="80" fill="none" stroke="#638690" stroke-width="3" opacity="0.5"></circle>
-
-</svg>

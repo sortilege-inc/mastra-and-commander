@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="509" height="274" viewBox="158 708 509 274">
+
+<defs>
+  <linearGradient id="rpFill" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#ffffff" stop-opacity="0.88"></stop>
+    <stop offset="0.5" stop-color="#e8f3f9" stop-opacity="0.7"></stop>
+    <stop offset="1" stop-color="#bcd5e3" stop-opacity="0.66"></stop>
+  </linearGradient>
+  <filter id="rpShadow" x="-8%" y="-12%" width="116%" height="128%">
+    <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0d2c3a" flood-opacity="0.28"></feDropShadow>
+  </filter>
+</defs>
+<g filter="url(#rpShadow)">
+  <path d="M170,742 L192,720 L633,720 L655,742 L655,948 L633,970 L192,970 L170,948 Z" fill="url(#rpFill)"></path>
+</g>
+<path d="M170,742 L192,720 L633,720 L655,742 L655,948 L633,970 L192,970 L170,948 Z" fill="none" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="2"></path>
+<path d="M174.5,743.5 L193.5,724.5 L631.5,724.5 L650.5,743.5 L650.5,946.5 L631.5,965.5 L193.5,965.5 L174.5,946.5 Z" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.4"></path>
+<path d="M182,747 L197,732 L628,732 L643,747 L643,943 L628,958 L197,958 L182,943 Z" fill="none" stroke="#5b7e94" stroke-opacity="0.28" stroke-width="1"></path>
+<path d="M196,723 H629" stroke="#00c2d4" stroke-width="2.6" stroke-opacity="0.9"></path>
+<path d="M212,967 H613" stroke="#5b7e94" stroke-width="1.6" stroke-opacity="0.45"></path>
+<g fill="none" stroke="#00c2d4" stroke-width="2.4" stroke-opacity="0.75" stroke-linecap="square">
+  <path d="M186,752 V736 H202"></path><path d="M639,752 V736 H623"></path>
+  <path d="M186,938 V954 H202"></path><path d="M639,938 V954 H623"></path>
+</g>
+<g fill="#2f4c60" fill-opacity="0.28">
+  <rect x="392" y="717" width="41" height="4"></rect><rect x="392" y="969" width="41" height="4"></rect>
+</g>
+</svg>

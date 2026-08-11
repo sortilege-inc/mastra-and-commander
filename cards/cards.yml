@@ -1,25 +1,168 @@
-# Mastra trading cards — content source.
+# Mastra & Commander — Operator cards (initial set).
 #
-# One entry per card. Fields:
-#   name    : card title (top plate)
-#   type    : type line (type bar), e.g. "Agent — Dolor"
-#   cost    : list of up to 5 resource pips, top→bottom down the left crescent.
-#             Each is one of: capital | attention | technology | blank
-#   rules   : rules text (textbox). Multi-line OK. Plain text.
-#   flavor  : italic flavor line under the rules (optional)
-#   stat    : stat badge text, e.g. "3 / 4" (optional — omit to hide the badge)
-#   art     : art filename under art/ (optional — omit to use art-placeholder.svg)
-#   artist  : credit line (optional)
+# ⚠ PLACEHOLDER SET — transcribed from the engine repo's synthetic test cards
+# (mastra-and-commander-server .../cards/testSet.ts, OPERATOR_CARDS). Numbers are
+# for exercising the pipeline, not final balance.
 #
-# Placeholder card mirrors the design-doc mock so the pipeline renders end-to-end
-# before real content lands. Replace / append real cards below.
+# Fields mirror the printed face (svg/v4/ice/spec.json):
+#   name         : title plate
+#   traits       : type line (slim, atop the rules panel) — FFG-style
+#   supertype    : ephemeral | persistent  (not rendered yet)
+#   ecosystem    : anthropic | openai | google | oss (optional; not rendered yet)
+#   keywords     : durable | setup (optional; not rendered yet)
+#   consume      : input cost, RIGHT rail (≤5) — pips: capital|attention|technology|generic
+#   produce      : output currencies, LEFT rail (≤5) — same pips
+#   contributes  : bottom rail (≤3) — "color/shape"; colors pink|cyan|amber|violet|green,
+#                  shapes circle|triangle|square|pentagon|hexagon
+#   rules        : rules-panel text (mini-syntax: **bold**, inline {gear}{eye}{coin}{blank})
 
-- name: Lorem Ipsum
-  type: Agent — Dolor
-  cost: [capital, attention, technology]
-  rules: |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-  flavor: Ut enim ad minim veniam, quis nostrud.
-  stat: "3 / 4"
-  art:
-  artist: Artist Name
+- name: Scratchpad
+  traits: [Utility]
+  supertype: ephemeral
+  consume: []
+  produce: [generic]
+  contributes: [pink/triangle]
+  rules: "A free chain starter. Costs nothing, produces one generic."
+
+- name: Agent
+  traits: [Agent]
+  supertype: ephemeral
+  ecosystem: anthropic
+  consume: [technology]
+  produce: [attention]
+  contributes: [cyan/circle]
+  rules: "The basic unit of work."
+
+- name: Subagent
+  traits: [Agent, Subagent]
+  supertype: ephemeral
+  ecosystem: anthropic
+  consume: [technology, generic]
+  produce: [attention, generic]
+  contributes: [cyan/triangle]
+  rules: "Delegate a slice of the work. Discounted alongside other Anthropic cards."
+
+- name: Supervisor Agent
+  traits: [Agent]
+  supertype: ephemeral
+  ecosystem: anthropic
+  consume: [technology, technology, generic]
+  produce: [attention, attention]
+  contributes: [cyan/square, cyan/circle]
+  rules: "Coordinates subagents. Feeds 2 Entropy — coordination is disorder."
+
+- name: Agent Swarm
+  traits: [Agent]
+  supertype: ephemeral
+  consume: [technology, technology, attention]
+  produce: [attention, attention, generic]
+  contributes: [cyan/pentagon, cyan/square, cyan/circle]
+  rules: "Maximum throughput, maximum disorder. Feeds 3 Entropy."
+
+- name: Web Search Tool
+  traits: [Tool]
+  supertype: persistent
+  ecosystem: oss
+  consume: [attention]
+  produce: [technology, generic]
+  contributes: [amber/circle]
+  rules: "Installable onto a server."
+
+- name: Summarize Skill
+  traits: [Skill]
+  supertype: persistent
+  consume: [generic]
+  produce: [attention]
+  contributes: [amber/triangle]
+  rules: "Installable onto a server."
+
+- name: Filesystem MCP
+  traits: [MCP]
+  supertype: persistent
+  ecosystem: oss
+  consume: [technology]
+  produce: [generic, generic]
+  contributes: [amber/square]
+  rules: "Installable onto a server."
+
+- name: Got Into YC
+  traits: [Event]
+  supertype: ephemeral
+  consume: [generic]
+  produce: [capital, capital]
+  contributes: [violet/circle]
+  rules: "Funding windfall: draw a card. Feeds 2 Entropy."
+
+- name: Parallelism
+  traits: [Event]
+  supertype: ephemeral
+  consume: [attention, generic]
+  produce: []
+  contributes: [violet/triangle]
+  rules: "Open an additional concurrent Process this round."
+
+- name: Durable Agent
+  traits: [Agent]
+  supertype: persistent
+  keywords: [durable]
+  consume: [capital, technology]
+  produce: [attention]
+  contributes: [green/pentagon]
+  rules: "**Durable** — relays to the next round without feeding Entropy."
+
+- name: Ingestion Pipeline
+  traits: [Infrastructure]
+  supertype: persistent
+  keywords: [setup]
+  consume: [capital, capital]
+  produce: [generic]
+  contributes: [green/circle]
+  rules: "**Setup** — scrap it on a failed eval to shed 5 Entropy."
+
+- name: Guardrails
+  traits: [Response]
+  supertype: ephemeral
+  consume: [attention]
+  produce: []
+  contributes: [pink/circle]
+  rules: "**Response:** remove up to 2 injected contributions."
+
+- name: Hotfix
+  traits: [Response]
+  supertype: ephemeral
+  consume: [technology]
+  produce: []
+  contributes: [pink/square]
+  rules: "**Response:** restore one subverted card in the Context."
+
+- name: Frontier Model
+  traits: [Model]
+  supertype: persistent
+  consume: [capital, capital, technology]
+  produce: []
+  contributes: [violet/square]
+  rules: "**Upgrade:** replaces your installed model. Grants {eye} and a generic each round."
+
+- name: Chunking Step
+  traits: [Workflow]
+  supertype: ephemeral
+  consume: [generic]
+  produce: [generic]
+  contributes: [amber/circle]
+  rules: "A cheap link in the chain."
+
+- name: Embedding Step
+  traits: [Workflow]
+  supertype: ephemeral
+  consume: [generic]
+  produce: [generic]
+  contributes: [amber/triangle]
+  rules: "A cheap link in the chain."
+
+- name: Indexing Step
+  traits: [Workflow]
+  supertype: ephemeral
+  consume: [generic]
+  produce: [generic]
+  contributes: [amber/square]
+  rules: "A cheap link in the chain."

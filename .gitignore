@@ -3,5 +3,12 @@
 /.bundle/
 /output/
 
+# Card art — untracked for now; keep the folder + its README
+/art/*
+!/art/README.md
+
+# Scratch
+/temp/
+
 # OS / editor
 .DS_Store
