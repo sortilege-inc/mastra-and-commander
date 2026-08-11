@@ -79,8 +79,8 @@ powerful/expensive plays hand Entropy extra cards. Core tension: **efficiency vs
 the tighter your solution, the less ammunition you give the Runner. Accumulated Entropy forms
 a **stack** (resolved in reverse order, §2); **RAG can remove random cards from it** (below).
 
-### Commander — Mastra 🔒
-Your **commander** sits in a command zone, always available. Not a normal draw;
+### Framework — Mastra 🔒
+Your **framework** sits in its own zone, always available. Not a normal draw;
 always in play.
 
 🔒 **Ability (2026-08-10):** *The first **Agent** played each round has no cost and
@@ -122,7 +122,7 @@ through it ends the game (see Outcomes).
 
 ### Loadout / "start with equipment up" 🔒
 Like Flesh & Blood, you begin with **baseline functionality already in play** — your
-Commander plus a small **starting loadout** of persistent equipment. Equipment is your
+Framework plus a small **starting loadout** of persistent equipment. Equipment is your
 **resource base**: each turn it **auto-pitches cards off the top of your deck** (so it
 doesn't cost you hand cards) **and grants free resources of its types**. Different loadouts
 = different free resource colors. 🟨 exact size/slots TBD.
@@ -159,7 +159,7 @@ playing a card **face-down as a call** (see Calling installed resources).
 
 ### Ecosystems & lock-in 🔒
 Cards carry **ecosystem keywords** (e.g. **Anthropic**, OpenAI, Google, OSS). Lock-in is
-**strictly card-level** — the Commander is **ecosystem-neutral** (no deck restriction). Some
+**strictly card-level** — the Framework is **ecosystem-neutral** (no deck restriction). Some
 cards **discount cost for other same-keyword cards** (e.g. a **Claude** card discounts
 **Anthropic** cards). **Mixing just forgoes the discounts — no inherent penalty.** The one
 exception is **targeted Entropy events**: e.g. a **US-Gov** card that penalizes
@@ -341,7 +341,7 @@ Side = Operator (build) / Entropy (wrench). Costs/stats are placeholders.
    card sets the payload; Rerank swaps for equal size (2026-08-10). ❓ only how much Entropy
    completion clears (engine uses 3).
 6. ❓ **Ecosystems** — how many, and the roster of **targeted-Entropy events** (US-Gov vs.
-   Chinese models, etc.). *(Card-level, neutral Commander, forgone-discounts — resolved.)*
+   Chinese models, etc.). *(Card-level, neutral Framework, forgone-discounts — resolved.)*
 7. ❓ **Claw** completion condition (fixed count? cost paid?). *(Engine uses 3.)*
 8. ❓ **Solo staging** — when do you "place every Entropy card, in order," and what makes a
    slot "eligible"? *(Engine: auto-feed from deck top, auto-target leftmost eligible.)*
@@ -375,7 +375,7 @@ eval tiers are a **soft gate**; **loss = failing to match the eval**; deckbuildi
   implemented in `mastra-and-commander-server`:
   - **Contribution vocabulary = 5 Colors × 5 ordered Shapes.** Outputs use the **same 3
     currencies + generic**. **Stat badge dropped.**
-  - **Commander Mastra:** *the first Agent played each round has no cost and incurs no
+  - **Framework Mastra:** *the first Agent played each round has no cost and incurs no
     Entropy* (replaces the pitch-for-⚙⚙⚙ sketch). The card is named plainly — no longer a
     placeholder.
   - **Pitching is always legal; Contribution match sets the price** — 1 Entropy for
@@ -394,7 +394,7 @@ eval tiers are a **soft gate**; **loss = failing to match the eval**; deckbuildi
   - **Context ceiling = 7** by default, overridable per Objective. **Subagents open their own
     context** at the same ceiling, not counting against the parent's.
 
-- 2026-08 — Owner: Mastra = commander; resources are land-type costs, **no tap**;
+- 2026-08 — Owner: Mastra = framework; resources are land-type costs, **no tap**;
   stateless-by-default with a Persistent exception; F&B-style Context chain; asymmetric
   Operator-vs-Adversary around an Eval deck; start with equipment up; single Process by
   default (Parallelism adds more); Claw = face-down loader → second parallel hand.
@@ -436,7 +436,7 @@ eval tiers are a **soft gate**; **loss = failing to match the eval**; deckbuildi
   difficulty is a **soft gate** (single-agent runs generate too much Entropy to pass high
   tiers). **Ecosystem lock-in:** cards carry vendor keywords (Anthropic/…); some discount cost
   for same-ecosystem cards (e.g. Claude → Anthropic).
-- 2026-08 — Owner: lock-in is **strictly card-level** (Commander is ecosystem-neutral); mixing
+- 2026-08 — Owner: lock-in is **strictly card-level** (Framework is ecosystem-neutral); mixing
   = **forgone discounts only**, except **targeted Entropy events** (e.g. US-Gov penalizes
   Chinese models). **RAG's locked contribution = the Contribution of the final card(s) used to
   complete the track**; reset & rebuild with a different final card to re-spec.
@@ -448,3 +448,8 @@ eval tiers are a **soft gate**; **loss = failing to match the eval**; deckbuildi
 - 2026-08 — Owner: **Mastra has a Features deck** — no-Entropy cards that add play patterns;
   the eval's difficulty grants **1–3** picks. **I/O consume/produce flagged provisional**
   (owner not yet happy; expect to change in playtest).
+- 2026-08-10 — Owner: **"Commander" is retired as terminology — the role is the
+  FRAMEWORK.** Mastra sits in its own zone as your framework, matching the printed
+  card's own type line. Earlier entries in this log were updated to the new term so
+  the document reads consistently; only the vocabulary changed, never a ruling. The
+  game keeps its title, *Mastra & Commander*.
