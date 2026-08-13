@@ -95,7 +95,7 @@ switch on for a run. 🟨 chosen fresh each eval, or kept once selected? TBD.
 
 ### Resources & the pitch economy 🔒
 Three types, **like land types / colors — spent, never tapped**:
-**Capital** (coin), **Attention** (eye), **Technology** (gear). `blank` pip = generic /
+**Value** (coin), **Attention** (eye), **Automation** (gear). `blank` pip = generic /
 numeric / unassigned. Card costs are combinations of these.
 
 **Cards *are* the resources.** A card's cost (its **input edge**) is paid **first by the
@@ -143,11 +143,11 @@ its own type**, so the track can't be rushed on a single color.
 
 | Chapter | Cost |
 |---|---|
-| Chunk | ⚙ technology |
+| Chunk | ⚙ automation |
 | Embed | ◉ attention |
-| Insert | ◆ capital |
+| Insert | ◆ value |
 | **Upsert** | ○ generic |
-| *Rerank* (optional) | ⚙ technology |
+| *Rerank* (optional) | ⚙ automation |
 
 🔒 **Upsert takes a card, and that card's Contribution becomes RAG's payload** — what RAG
 supplies when called. **Rerank** may swap the payload for another of **equal size** (size =
@@ -279,8 +279,8 @@ The Squib pipeline (`cards/deck.rb`, Lens frame) already renders every field:
 - **Name** — title plate.
 - **Type line** — centered, FFG-trait style (e.g. `Framework. TypeScript. Open Source.`).
 - **Produce (left edge)** 🔒 — icon rail of the **output currencies this card produces**.
-- **Consume / cost (right edge)** 🔒 — icon rail of the card's **input cost** (capital /
-  attention / technology / blank), paid by a prior card's output or by pitching.
+- **Consume / cost (right edge)** 🔒 — icon rail of the card's **input cost** (value /
+  attention / automation / blank), paid by a prior card's output or by pitching.
 - **Contribution (bottom edge)** 🔒 — **Color + Shape**, the currency the Eval scores.
 - *Owner placement (2026-08):* **produce = left, consume = right, contributes = bottom** —
   flips the earlier left=cost convention. Applies to the new cyberpunk frame direction.
@@ -370,6 +370,24 @@ eval tiers are a **soft gate**; **loss = failing to match the eval**; deckbuildi
 **Marvel-Champions modular packs** (Operator + Entropy bundled).*
 
 ## 10. Decision log
+
+- **2026-08-13 — Owner: resource terminology rename.** **Capital → Value** and
+  **Technology → Automation** across the design docs, glossary, and README (Attention
+  unchanged; `generic`/`blank` is informally "Wild" on cards, not renamed here). The
+  renderer's internal pip **keys** stay `capital`/`attention`/`technology`/`generic` as
+  stable identifiers — `deck.rb` aliases `value`→capital, `automation`→technology,
+  `wild`→generic, so rules text and `cards.yml` may use either spelling.
+
+- **2026-08-11 — Owner: first 15-card build set + `Equipment` → `Loadout` rename.**
+  The **Equipment** card type is renamed **Loadout** (Sandbox, rig, cloud, silicon).
+  ⚠ **Templating TODO (not yet done)** — the rename touches: `svg/v4/equip/` →
+  `svg/v4/loadout/` (folder + internal layer refs), `KIND_TO_VARIANT` in `cards/deck.rb`
+  (`'equipment'=>'equip'` → `'loadout'=>'loadout'`), the card-back `appliesTo` lists +
+  `svg/v4/index.json`, `kind: equipment` → `kind: loadout` in `cards/cards.yml`, and the
+  README variant table. Frame art is unchanged — rename only. First playable set = 15 cards
+  (Mastra, Agent, AgentBrowser, Social Media Manager, Parallelism, PII Leak, Token Limiter,
+  Human-in-the-Loop, Personal Tech Support, Fable, Sandbox, Jailbreak, Recruiter Agent,
+  Model Collapse, Y-Combinator). Owner is designing **Agent** ("Token") separately.
 
 - **2026-08-10 — Owner (engine first-pass session).** A batch of rulings, all now
   implemented in `mastra-and-commander-server`:

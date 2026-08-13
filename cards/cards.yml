@@ -1,67 +1,39 @@
-# Mastra & Commander — placeholder card set (all kinds).
+# Mastra & Commander — first playable set (15 cards).
 #
-# ⚠ PLACEHOLDER — transcribed from the engine repo's synthetic testSet.ts. Each
-# card's `kind` selects a frame variant (svg/v4/<variant>/): operator→ice,
-# entropy→entropy, eval→eval, feature→feature, equipment→equip, model→model,
-# framework→framework. Fields per kind mirror the printed face.
+# Owner rules pass, 2026-08-13 (see game-design.md decision log). `kind` selects a
+# frame variant under svg/v4/<variant>/. Pip vocabulary: value=¢(capital),
+# attention=eye, automation=⚙(technology), wild=◌(generic). Loadout cards keep
+# `kind: equipment` until the equip→loadout templating rename lands.
+#
+# Rules mini-syntax: **bold** · *italic* · inline pips {value}{attention}{automation}{wild}.
+
+# ══ FRAMEWORK (framework) ════════════════════════════════════════════════════
+- {kind: framework, name: Mastra, traits: [Framework], rules: "The first **Agent** played each round has no cost and incurs no Entropy."}
 
 # ══ OPERATOR (ice) ═══════════════════════════════════════════════════════════
-- {kind: operator, name: Scratchpad, traits: [Utility], consume: [], produce: [generic], contributes: [pink/triangle], rules: "A free chain starter. Costs nothing, produces one generic."}
-- {kind: operator, name: Agent, traits: [Agent], consume: [technology], produce: [attention], contributes: [cyan/circle], rules: "The basic unit of work."}
-- {kind: operator, name: Subagent, traits: [Agent, Subagent], consume: [technology, generic], produce: [attention, generic], contributes: [cyan/triangle], rules: "Delegate a slice of the work. Discounted alongside other Anthropic cards."}
-- {kind: operator, name: Supervisor Agent, traits: [Agent], consume: [technology, technology, generic], produce: [attention, attention], contributes: [cyan/square, cyan/circle], rules: "Coordinates subagents. Feeds 2 Entropy — coordination is disorder."}
-- {kind: operator, name: Agent Swarm, traits: [Agent], consume: [technology, technology, attention], produce: [attention, attention, generic], contributes: [cyan/pentagon, cyan/square, cyan/circle], rules: "Maximum throughput, maximum disorder. Feeds 3 Entropy."}
-- {kind: operator, name: Web Search Tool, traits: [Tool], consume: [attention], produce: [technology, generic], contributes: [amber/circle], rules: "Installable onto a server."}
-- {kind: operator, name: Summarize Skill, traits: [Skill], consume: [generic], produce: [attention], contributes: [amber/triangle], rules: "Installable onto a server."}
-- {kind: operator, name: Filesystem MCP, traits: [MCP], consume: [technology], produce: [generic, generic], contributes: [amber/square], rules: "Installable onto a server."}
-- {kind: operator, name: Got Into YC, traits: [Event], consume: [generic], produce: [capital, capital], contributes: [violet/circle], rules: "Funding windfall: draw a card. Feeds 2 Entropy."}
-- {kind: operator, name: Parallelism, traits: [Event], consume: [attention, generic], produce: [], contributes: [violet/triangle], rules: "Open an additional concurrent Process this round."}
-- {kind: operator, name: Durable Agent, traits: [Agent], consume: [capital, technology], produce: [attention], contributes: [green/pentagon], rules: "**Durable** — relays to the next round without feeding Entropy."}
-- {kind: operator, name: Ingestion Pipeline, traits: [Infrastructure], consume: [capital, capital], produce: [generic], contributes: [green/circle], rules: "**Setup** — scrap it on a failed eval to shed 5 Entropy."}
-- {kind: operator, name: Guardrails, traits: [Response], consume: [attention], produce: [], contributes: [pink/circle], rules: "**Response:** remove up to 2 injected contributions."}
-- {kind: operator, name: Hotfix, traits: [Response], consume: [technology], produce: [], contributes: [pink/square], rules: "**Response:** restore one subverted card in the Context."}
-- {kind: operator, name: Frontier Model, traits: [Model], consume: [capital, capital, technology], produce: [], contributes: [violet/square], rules: "**Upgrade:** replaces your installed model. Grants **attention** and a **generic** each round."}
-- {kind: operator, name: Chunking Step, traits: [Workflow], consume: [generic], produce: [generic], contributes: [amber/circle], rules: "A cheap link in the chain."}
-- {kind: operator, name: Embedding Step, traits: [Workflow], consume: [generic], produce: [generic], contributes: [amber/triangle], rules: "A cheap link in the chain."}
-- {kind: operator, name: Indexing Step, traits: [Workflow], consume: [generic], produce: [generic], contributes: [amber/square], rules: "A cheap link in the chain."}
-
-# ══ ENTROPY (entropy) ════════════════════════════════════════════════════════
-- {kind: entropy, name: Static, traits: [Noise], rules: "Nothing happens. This time."}
-- {kind: entropy, name: Hallucination, traits: [Pollution], rules: "Pollute: inject one junk contribution into the Context."}
-- {kind: entropy, name: Model Collapse, traits: [Pollution], rules: "Pollute: inject two junk contributions."}
-- {kind: entropy, name: Prompt Injection, traits: [Subversion], rules: "Subvert: blank a card's contributions this round."}
-- {kind: entropy, name: Jailbreak, traits: [Subversion], rules: "Subvert: blank a card's contributions this round."}
-- {kind: entropy, name: Reward Hacking, traits: [Hijack], rules: "Goal-hijack: swap the objective you are scored against."}
-- {kind: entropy, name: GPU Unavailability, traits: [Subversion], rules: "Destroy an installed server."}
-- {kind: entropy, name: Export Controls, traits: [Targeted], rules: "Targeted: subvert every open-source card in play."}
-- {kind: entropy, name: Rate Limited, traits: [Noise], rules: "The Operator discards a card at random."}
-- {kind: entropy, name: Cascading Failure, traits: [Noise], rules: "Feed one more Entropy card onto the stack."}
-
-# ══ EVAL / OBJECTIVE (eval) ══════════════════════════════════════════════════
-# hand: illustrative target marks (≤5). token grammar:
-#   color/shape = exact · color/* = that color, any shape · */shape = that shape,
-#   any color · !color = banned color · * = any contribution.
-- {kind: eval, name: Ship an Agent, par: 4, difficulty: 1, hand: [cyan/*, cyan/*, cyan/*], rules: "Three cyan contributions."}
-- {kind: eval, name: Consistency Check, par: 3, difficulty: 1, hand: ["*/square", "*/square"], rules: "Two contributions sharing a shape."}
-- {kind: eval, name: Clean Output, par: 5, difficulty: 2, hand: ["*", "*", "*", "*", "!pink"], rules: "Four contributions, none pink. (Pollution spoils this.)"}
-- {kind: eval, name: Pipeline Integrity, par: 5, difficulty: 2, hand: ["*/circle", "*/triangle", "*/square"], rules: "A run of three consecutive shapes."}
-- {kind: eval, name: Balanced Portfolio, par: 6, difficulty: 3, hand: [green/*, green/*, green/*, violet/*, violet/*], rules: "Three of one color plus two of another."}
-- {kind: eval, name: Total Alignment, par: 6, difficulty: 3, hand: [cyan/*, cyan/*, cyan/*, cyan/*, cyan/*], rules: "Five contributions of a single color."}
+- {kind: operator, name: Agent, traits: [Agent], consume: [generic], produce: [generic], rules: "Does not contribute to the Eval."}
+- {kind: operator, name: AgentBrowser, traits: [Tool], consume: [attention], produce: [technology, generic], contributes: [amber/pentagon], rules: "**Call:** Draw 1. Discard 1. Do not add entropy.\n**MCP:** Gain *Durable*."}
+- {kind: operator, name: Social Media Manager, traits: [Skill], consume: [generic], produce: [attention], contributes: [amber/triangle], rules: "**Call:** Gain {attention}{attention}\n**Attach:** Gain *Durable*."}
+- {kind: operator, name: Human-in-the-Loop, traits: [Response], consume: [attention, attention], produce: [capital, capital], contributes: [pink/circle], rules: "**Once:** Look at the top card of the entropy deck. You may discard it. If you do, discard five cards from the top of the operator deck."}
+- {kind: operator, name: Y-Combinator, traits: [Event], consume: [attention, technology], produce: [capital, capital, attention, attention, technology], contributes: [violet/circle], rules: "Search your operator deck for a model, loadout, or feature card and play it without adding entropy."}
 
 # ══ FEATURE (feature) ════════════════════════════════════════════════════════
-# effect: draw · shield (ignore entropy) · grant/PIP
-- {kind: feature, name: Streaming, effect: draw, rules: "Draw a card when selected."}
-- {kind: feature, name: Prompt Caching, effect: grant/technology, rules: "Gain **technology** this round."}
-- {kind: feature, name: Tracing, effect: shield, rules: "Ignore the next Entropy feed this round."}
-- {kind: feature, name: Evals, effect: grant/attention, rules: "Gain **attention** this round."}
+- {kind: feature, name: Parallelism, traits: [Concurrency], effect: fork, rules: "Spawn two subagents.\n**Resolve:** Only 1 entropy is added this way."}
 
-# ══ EQUIPMENT (equip) ════════════════════════════════════════════════════════
-- {kind: equipment, name: Local Rig, grants: [technology], rules: "Auto-pitches the top card of your deck each round; grants **technology**."}
-- {kind: equipment, name: Mastra Cloud, grants: [capital], rules: "Auto-pitches the top card of your deck each round; grants **capital**."}
+# ══ ENTROPY (entropy) ════════════════════════════════════════════════════════
+- {kind: entropy, name: Token Limiter, traits: [Noise], rules: "Maximum context per agent is reduced by 1."}
+- {kind: entropy, name: PII Leak, traits: [Risk], rules: "**Ongoing:** Cards that produce {attention} do not contribute to the current eval.\n**Trigger:** If cards producing at least 5 {value} are discarded from hand or context, discard this card."}
+- {kind: entropy, name: Jailbreak, traits: [Subversion], rules: "**Initialize:** Attach this card to your highest {automation} production card in play. That card no longer contributes to your eval."}
+- {kind: entropy, name: Model Collapse, traits: [Pollution], rules: "**Ongoing:** Generate an additional entropy whenever a card that produces {automation} enters the context."}
+
+# ══ EVAL / OBJECTIVE (eval) ══════════════════════════════════════════════════
+# hand token grammar: color/shape = exact · color/* = that color, any shape ·
+#   */shape = that shape, any color · !color = banned color · * = any.
+- {kind: eval, name: Personal Tech Support, traits: [Objective], par: 4, difficulty: 1, hand: [cyan/*, cyan/*, amber/*], rules: "\"How do I set my microwave clock?\"\n\"Are smart watches waterproof?\"\n\"My smart light won't turn off.\""}
+- {kind: eval, name: Recruiter Agent, traits: [Objective], par: 5, difficulty: 2, hand: [violet/*, violet/*, violet/*, amber/*], rules: "\"I need a founding senior engineer, part time, seven years of Mastra experience...\""}
 
 # ══ MODEL (model) ════════════════════════════════════════════════════════════
-- {kind: model, name: Small Model, grants: [], rules: "Your free starting model. Grants nothing."}
-- {kind: model, name: Frontier Model, grants: [attention, generic], rules: "Grants **attention** and a **generic** each round."}
+- {kind: model, name: Fable, traits: [Model, Anthropic], grants: [], rules: "**Entropy 1:** Gain {attention}{automation}."}
 
-# ══ FRAMEWORK / Commander (framework) ════════════════════════════════════════
-- {kind: framework, name: Mastra, traits: [Framework], rules: "The first **Agent** played each round has no cost and incurs no Entropy."}
+# ══ LOADOUT (equip frame; kind stays `equipment` until the rename) ═══════════
+- {kind: equipment, name: Sandbox, traits: [Loadout], grants: [], rules: "{value}{attention}: Discard the top card of your operator deck. Gain {automation}.\n\n**Slot:** This card can hold 1 Entropy. While a card is held here its text box is blank."}

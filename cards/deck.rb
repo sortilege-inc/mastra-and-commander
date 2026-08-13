@@ -117,8 +117,11 @@ end
 def effect_svg(token, color)
   t = token.to_s
   return pip_svg(t.split('/', 2)[1], color) if t.start_with?('grant/')
-  body = if t == 'shield'
+  body = case t
+         when 'shield'
            %(<path d="M50 20 L76 30 V52 C76 70 62 80 50 84 C38 80 24 70 24 52 V30 Z" fill="none" stroke="#{color}" stroke-width="6.5" stroke-linejoin="round"/><path d="M40 52 L48 60 L64 42" fill="none" stroke="#{color}" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>)
+         when 'fork'  # one process branching into two (Parallelism)
+           %(<g stroke="#{color}" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 30 V50 M50 50 L30 72 M50 50 L70 72" fill="none"/><circle cx="50" cy="26" r="6" fill="#{color}"/><circle cx="30" cy="76" r="6" fill="#{color}"/><circle cx="70" cy="76" r="6" fill="#{color}"/></g>)
          else # draw
            %(<g fill="none" stroke="#{color}" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"><rect x="30" y="26" width="40" height="52" rx="6"/><path d="M50 70 V42 M40 52 L50 42 L60 52"/></g>)
          end
@@ -126,12 +129,15 @@ def effect_svg(token, color)
 end
 
 ICON_ALIASES = {
-  'coin' => 'capital', 'capital' => 'capital', 'eye' => 'attention', 'attention' => 'attention',
-  'gear' => 'technology', 'technology' => 'technology', 'blank' => 'generic', 'generic' => 'generic'
+  'coin' => 'capital', 'capital' => 'capital', 'value' => 'capital',
+  'eye' => 'attention', 'attention' => 'attention',
+  'gear' => 'technology', 'technology' => 'technology', 'automation' => 'technology',
+  'blank' => 'generic', 'generic' => 'generic', 'wild' => 'generic'
 }.freeze
 rich = lambda do |raw_text|
   s = esc.call(raw_text).strip
   s = s.gsub(/\*\*(.+?)\*\*/m) { "<b>#{Regexp.last_match(1)}</b>" }
+  s = s.gsub(/\*(.+?)\*/m) { "<i>#{Regexp.last_match(1)}</i>" }  # single-asterisk italics (keywords)
   s.gsub(/\{([a-z]+)\}/) { (a = ICON_ALIASES[Regexp.last_match(1)]) ? "{{#{a}}}" : Regexp.last_match(0) }
 end
 

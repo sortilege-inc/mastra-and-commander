@@ -41,7 +41,7 @@ engine repo's `testSet.ts`). Fields mirror the face:
 |---|---|
 | `name` | title |
 | `traits` | type line (list) |
-| `consume` | right rail cost, ≤5 — pips: `capital` `attention` `technology` `generic` |
+| `consume` | right rail cost, ≤5 — Value `capital` · Attention `attention` · Automation `technology` · `generic` |
 | `produce` | left rail output, ≤5 — same pips |
 | `contributes` | bottom, ≤3 — `"color/shape"`; colors `pink cyan amber violet green`, shapes `circle triangle square pentagon hexagon` |
 | `rules` | rules text; mini-syntax `**bold**` + inline `{gear}{eye}{coin}{blank}` |

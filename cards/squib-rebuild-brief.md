@@ -36,7 +36,7 @@ and no dedicated type-line zone**. Fields:
 | Type line | `traits: string[]` | **no zone — decision needed** (see below) |
 
 Vocabularies (from `constants.ts`):
-- **Pips:** `capital` (coin), `attention` (eye), `technology` (gear), `generic` (blank).
+- **Pips:** `capital` = **Value** (coin), `attention` = **Attention** (eye), `technology` = **Automation** (gear), `generic` (blank).
 - **Colors:** pink, cyan, amber, violet, green. **Shapes:** circle, triangle, square,
   pentagon, hexagon (SHAPES is order-significant).
 - Also on cards: `supertype` (ephemeral|persistent), `keywords` (durable|setup),
