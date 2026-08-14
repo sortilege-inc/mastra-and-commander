@@ -201,10 +201,24 @@ input, you **pitch cards to make up the difference** (see Pitch economy). The wi
 **resource pipeline** — each node consumes and produces — and it keeps going as long as you
 can fund the next input. Entropy pollutes/subverts by breaking the flow.
 
-🔒 **Context ceiling (2026-08-10).** A context window holds at most **7 cards** by default;
-an **Objective may set its own ceiling.** A **Subagent** opens **its own context** with the
-same ceiling, and the cards in it **do not count against the parent's** — which is exactly
-why you delegate. It is the only way to do more work than one window can hold.
+🔒 **The Context is a TREE of Agent-owned rows (2026-08-13).** A row does not exist on its
+own: it is **owned by an Agent token**. The round opens with an Agent — **free, because Mastra
+makes the round's first Agent free** — and that Agent's row is your initial context. Every
+further Agent put into play **opens its own row, as a child of the row it came from.**
+Everything else is played *into* a row.
+
+**"Subagent" is not a card type** — it just means an Agent opened while another row already
+existed. There is one kind of row.
+
+🔒 **Context ceiling (2026-08-10, rescoped 2026-08-13).** Each row holds at most **7 cards**
+by default; an **Objective may set its own ceiling**, and an Ongoing threat may reduce it.
+A child row's cards **do not count against its parent's ceiling** — which is exactly why you
+delegate. Opening more rows is the only way to do more work than one window can hold.
+
+🔒 **Tokens (2026-08-13).** A token is **put into play by another card** — never drawn, never
+paid for — and **does not act**: no cost, no output, no Contribution. **Agent** is the only
+token so far, and its whole job is to own a row. In the first set the only source besides
+Mastra's free opener is **Parallelism**.
 
 🟨 **Unsettled:** the owner isn't happy with the consume/produce pattern yet — expect this to
 change through playtesting. Treat the I/O flow as **provisional.**
@@ -221,11 +235,12 @@ cards in your resolved Context — e.g. *five of one color*, *no pink*, *a run o
 questions: **can this card connect (I/O)?** and **does it push the hand toward the Eval
 (Contribution)?**
 
-### Process 🔒
-Your line of execution. **By default you get one Process** — it **closes out with or
-without your results** (partial/failed results still resolve). Cards like **Parallelism**
-grant **additional concurrent Processes**. ❓ what *ends/closes* a Process (resource
-exhaustion? a step limit? an Adversary action?).
+### Process — superseded 🔒
+**Retired 2026-08-13.** "Process" was the earlier name for a line of execution, with
+Parallelism granting extra concurrent ones. That role is now filled by **Agent-owned context
+rows** (see Context above): Parallelism spawns **Agents**, and each Agent brings its own row.
+There is no separate Process count, and no "open a Process" action — you open a row by
+putting an Agent into play.
 
 ### Objective / Eval deck 🔒
 A deck of puzzles. Each Objective states a **target hand** over contributions (color + shape)
@@ -258,6 +273,14 @@ it as a **second, parallel hand** that can act — this turn or a future one —
 resolving an Objective. A pre-staged parallel line of play.
 
 ## 5. The three wrench vectors 🔒
+
+🔒 **The threat row (2026-08-13).** Entropy used to resolve once and go to the discard. A card
+printing **`Ongoing:`** instead moves to a **threat row**, where it keeps applying until its
+**`Trigger:`** clears it — so the threat row is your running debt, and answering it is real
+work rather than waiting it out. A card printing **`Initialize:`** fires once on resolution
+and then stays in play, usually attached to whatever it hit. Cards with neither still resolve
+and discard as before.
+
 
 | Vector | What it does | Fits cards |
 |---|---|---|
@@ -294,7 +317,7 @@ The Squib pipeline (`cards/deck.rb`, Lens frame) already renders every field:
 - **Relay** — carry a card into the next round instead of discarding it; normally **feeds Entropy**.
 - **Durable** — a card that **relays free** (no added entropy), keeping its attachments.
 - **Attach** — play onto another card; moves/relays with its host.
-- **Parallelize** — open an additional concurrent Process.
+- **Parallelize** — spawn Agents, each opening its own context row.
 - **Pollute / Subvert / Hijack** — Entropy's three verbs (see §5).
 - **Pack** — a modular bundle of Operator + matched Entropy cards, added/removed together.
 - **Setup card** — an installed/persistent engine (RAG, equipment, reward cards, …); scrapping
@@ -308,6 +331,27 @@ The Squib pipeline (`cards/deck.rb`, Lens frame) already renders every field:
 - **Contribution** — a card's Color + Shape (bottom of card); the Eval's scoring currency.
 - **Eval / hand** — a poker-hand pattern over contributions that a resolved Context must match.
 - **Response** — a card played in the Response phase to counter resolved Entropy.
+
+**Printed ability keywords (2026-08-13)** — these appear as bolded labels in a card's text:
+
+- **Call:** — what an installed Tool / attached Skill / completed RAG does when you reach for
+  it. Calling **also** delivers the resource's Contribution into the Context (that is what a
+  call is *for*); the `Call:` text is **in addition**, and never feeds Entropy — you paid that
+  at install.
+- **MCP:** / **Attach:** — what the card gains from a *placement*: installing a Tool as an MCP
+  server, or attaching a Skill to a loadout item. Both grant **Durable**.
+- **Once:** — an ability usable once per **round** 🟨 (the doc has not pinned round vs match).
+- **Ongoing:** — an Entropy card that **persists on the threat row** after resolving, applying
+  continuously instead of once (see §5).
+- **Trigger:** — the condition that clears an Ongoing threat off the threat row. Without one,
+  it stays for the rest of the match.
+- **Initialize:** — an Entropy card that fires **once on resolution** and then remains in
+  play, usually **attached** to the card it hit.
+- **Slot:** — a container printed on a permanent (Sandbox) that can **hold an Entropy card**,
+  blanking its text while held.
+- **Entropy N:** — an ability whose **cost is Entropy**: feed N cards from the Entropy deck
+  onto the stack to pay it (2026-08-13). The only way to *voluntarily* buy Entropy.
+- **Token** — see §4. Put into play by another card; does not act.
 
 ## 8. Shortlist in design (10) — 🟨 pitches
 
@@ -348,19 +392,23 @@ Side = Operator (build) / Entropy (wrench). Costs/stats are placeholders.
 9. 🔒 **Server card source** — the face-down substrate comes from the **Operator's hand**
    (2026-08-10).
 10. ❓ **Install = Persistent keyword, or a distinct Server zone** (with protection/ice)?
-11. ❓ **Models** — what they do (resource output / agent enablement / tiers)?
+11. 🔒 **Models** — a model prints its own ability rather than being a generic resource
+    engine (2026-08-13). Fable: *"Entropy 1: Gain {attention}{automation}"* — an ability whose
+    **cost is Entropy**.
 12. ❓ Local **rig vs. cloud** — how they differ (resource colors / capacity)?
 13. 🔒 **A game is 3 evals**; the other end condition is **cycling your deck** (2026-08-10).
     ❓ still open: how many passes win, and two-player match structure.
 14. ❓ Goal-hijack **hidden-objective layer** — commit now or defer? *(Engine ships a minimal
     open swap with the next Eval card.)*
-15. 🔒 **How big a Context can get: 7 by default**, or whatever the Objective sets; Subagents
-    open their own windows that don't count against the parent (2026-08-10). ❓ still open:
-    what *closes* a Process.
+15. 🔒 **How big a Context can get: 7 per row** by default, or whatever the Objective sets,
+    less any Ongoing reduction (2026-08-13). Each **Agent-owned row** has its own ceiling and a
+    child row's cards do not count against its parent's.
 16. ❓ **Packs** — do they also supply Eval cards, or is the Eval deck separate?
 17. ❓ **"Setup card" taxonomy** — exactly which cards count as Setup (RAG / equipment / models
     / installs / rewards) for the −5-Entropy scrap?
-18. ❓ **Features** — selected fresh each eval, or kept once chosen?
+18. 🔒 **Features** — there is no separate Features deck (2026-08-13); feature cards shuffle
+    into the **operator deck** and are drawn or tutored like anything else, so the
+    pick-at-Reveal step is gone.
 19. 🟨 **I/O consume/produce is provisional** — owner not satisfied; revisit via playtest.
 
 *Resolved: pitch = 1 card per pip, priced 1/2/3 by Contribution match; hand always refills to
@@ -370,6 +418,26 @@ eval tiers are a **soft gate**; **loss = failing to match the eval**; deckbuildi
 **Marvel-Champions modular packs** (Operator + Entropy bundled).*
 
 ## 10. Decision log
+
+- **2026-08-13 — Owner (second engine session).** Rulings taken while wiring the first
+  playable set:
+  - **The Context is a tree of Agent-owned rows.** A row is owned by an **Agent token**; the
+    round opens with one (free via Mastra) and each further Agent opens a **child row of the
+    row it came from**. **"Subagent" is not a distinct token** — just an Agent opened when a
+    row already exists. **Process is retired** as a concept; there is no "open a Process".
+  - **Agent tokens come only from a supply**, put into play by cards that spawn them
+    (Parallelism, in this set) — you cannot simply buy another row.
+  - **Ongoing Entropy persists on a threat row** until its Trigger clears it.
+  - **A `Call:` does BOTH** — delivers the Contribution *and* resolves the printed text.
+  - **`Entropy N:` is a cost**: feed N cards from the Entropy deck onto the stack.
+  - **Sandbox's Slot** works by the Operator **diverting a resolving Entropy card** into it,
+    rather than catching one automatically.
+  - **Token Limiter's ceiling reduction applies to every row**, parent and child alike.
+  - **Models, loadouts and features shuffle into the operator deck** as findable upgrades
+    (which is what makes Y-Combinator's tutor meaningful); you still start with one loadout
+    and one model in play. The separate Features deck is gone.
+  - **Scope:** the 15-card set is for roughing out the **opening turns**, not a balanced
+    three-eval match; decks repeat the same cards to reach a drawable size.
 
 - **2026-08-13 — Owner: resource terminology rename.** **Capital → Value** and
   **Technology → Automation** across the design docs, glossary, and README (Attention
