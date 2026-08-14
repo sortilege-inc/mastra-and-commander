@@ -1,6 +1,6 @@
 {
-  "name": "Mastra & Commander — Ice Chrome / Equipment",
-  "variant": "equip",
+  "name": "Mastra & Commander — Ice Chrome / Token",
+  "variant": "token",
   "family": "ice-chrome",
   "version": "3.0.0",
   "canvas": {
@@ -23,10 +23,10 @@
     "h": 1000,
     "radius": 28
   },
-  "accent": "#0f9a92",
-  "accentName": "teal-green",
-  "cardType": "EQUIPMENT",
-  "renders": "name · traits · grants (≤3) · rules",
+  "accent": "#c2551f",
+  "accentName": "ubuntuOrange",
+  "cardType": "TOKEN",
+  "renders": "name · traits · art (no rules, no slots)",
   "layers": {
     "card-base": {
       "file": "layers/card-base.svg",
@@ -38,27 +38,27 @@
     },
     "art-placeholder": {
       "file": "layers/art-placeholder.svg",
-      "x": 180,
+      "x": 162,
       "y": 228,
-      "w": 465,
-      "h": 505,
+      "w": 501,
+      "h": 736,
       "z": 20
     },
     "aperture-mask": {
       "file": "layers/aperture-mask.svg",
-      "x": 180,
+      "x": 162,
       "y": 228,
-      "w": 465,
-      "h": 505,
+      "w": 501,
+      "h": 736,
       "z": 0,
       "role": "mask"
     },
     "art-window": {
       "file": "layers/art-window.svg",
-      "x": 160,
+      "x": 142,
       "y": 208,
-      "w": 505,
-      "h": 545,
+      "w": 541,
+      "h": 776,
       "z": 30
     },
     "frame": {
@@ -85,30 +85,14 @@
       "h": 62,
       "z": 50
     },
-    "rules-panel": {
-      "file": "layers/rules-panel.svg",
-      "x": 158,
-      "y": 746,
-      "w": 509,
-      "h": 236,
-      "z": 50
-    },
-    "grants-rail": {
-      "file": "layers/grants-rail.svg",
-      "x": 34,
-      "y": 426,
-      "w": 97,
-      "h": 228,
-      "z": 60
-    },
     "type-overlay": {
       "file": "layers/type-overlay.svg",
       "x": 64,
-      "y": 734,
+      "y": 834,
       "w": 56,
-      "h": 312,
+      "h": 212,
       "z": 80,
-      "bakedText": "EQUIPMENT"
+      "bakedText": "TOKEN"
     },
     "collector": {
       "file": "layers/collector.svg",
@@ -142,17 +126,11 @@
       "w": 485,
       "h": 46
     },
-    "rules": {
-      "x": 170,
-      "y": 758,
-      "w": 485,
-      "h": 212
-    },
     "typeOverlay": {
       "x": 70,
-      "y": 740,
+      "y": 840,
       "w": 44,
-      "h": 300
+      "h": 200
     },
     "collector": {
       "x": 636,
@@ -161,34 +139,13 @@
       "h": 52
     },
     "art": {
-      "x": 180,
+      "x": 162,
       "y": 228,
-      "w": 465,
-      "h": 505
-    },
-    "grantsRail": {
-      "x": 40,
-      "y": 432,
-      "w": 85,
-      "h": 216
+      "w": 501,
+      "h": 736
     }
   },
-  "slots": {
-    "grants": [
-      [
-        82.5,
-        468.5
-      ],
-      [
-        82.5,
-        540.5
-      ],
-      [
-        82.5,
-        612.5
-      ]
-    ]
-  },
+  "slots": {},
   "slotBacking": {
     "shape": "chamfered-square",
     "size": 62,
@@ -235,22 +192,6 @@
         "minSize": 14
       }
     },
-    "rules": {
-      "x": 190,
-      "y": 778,
-      "w": 445,
-      "h": 172,
-      "align": "left",
-      "vAlign": "top",
-      "font": {
-        "family": "Barlow",
-        "weight": 400,
-        "size": 26,
-        "leading": 33,
-        "tracking": 0,
-        "color": "#1a3441"
-      }
-    },
     "collector": {
       "x": 636,
       "y": 1002,
@@ -281,7 +222,7 @@
       "#16303c",
       "#0a1a22"
     ],
-    "accent": "#0f9a92",
+    "accent": "#c2551f",
     "accentAlternates": {
       "cyan": "#00c2d4",
       "oxblood": "#7d1c2b",
@@ -293,10 +234,12 @@
     }
   },
   "notes": [
-    "Accent is a single hue (#0f9a92) on every hairline — a recolour is a find/replace on that value.",
-    "type-overlay.svg carries the card type \"EQUIPMENT\" as baked text rotated -90° (reads bottom-to-top from the bottom-left corner, ending just below the icon rail). Text colour #f4f9fc for contrast on the accent bar.",
+    "Accent is a single hue (#c2551f) on every hairline — a recolour is a find/replace on that value.",
+    "type-overlay.svg carries the card type \"TOKEN\" as baked text rotated -90° (reads bottom-to-top from the bottom-left corner, ending just below the icon rail). Text colour #f4f9fc for contrast on the accent bar.",
     "collector.svg bakes the set mark glyph and the year 2026 (right-aligned); the card number is live text — textBoxes.collector, format NNN/TTT, right-aligned.",
     "traits are live text in textBoxes.traits: 1–5 words, uppercase, joined with \" · \" (maxWords 5). The box is inset to the clear run BETWEEN the subtitle plate's baked diamond pips — never widen it. Long strings shrink to fit (autoFit.minSize 14).",
+    "The rules panel is deliberately short — art is the hero. Rules text shrinks to fit (autoFit.minSize 18); copy that will not fit at 18 is too long for the card, not too big for the box.",
+    "The art box bottom sits 28px above the rules panel top; the art window rim (art box + 20) leaves ~10px of clear ink between rim and panel. Move one and you must move the other.",
     "Layer files are cropped to their own artwork; composite each at its x/y on the 825×1125 canvas.",
     "aperture-mask.svg (where present) is a solid black octagon in the art box — clip artwork with it, then composite art-window.svg above.",
     "guides.svg is non-printing (id=guides, data-printing=false).",

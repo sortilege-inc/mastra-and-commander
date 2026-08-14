@@ -3,7 +3,7 @@
   "variant": "back-operator",
   "family": "ice-chrome",
   "face": "back",
-  "version": "3.0.0",
+  "version": "3.2.0",
   "canvas": {
     "w": 825,
     "h": 1125,
@@ -30,9 +30,10 @@
     "ice",
     "eval",
     "feature",
-    "equip",
+    "loadout",
     "model",
-    "framework"
+    "framework",
+    "token"
   ],
   "symmetry": "180° rotational about 412.5,562.5 on every printing layer — grounds are centre-out radial, ornament and rings are half-paths re-used rotated, the bezel band is radial with a zero-offset shadow. No directional lighting anywhere: a face-down card gives away no orientation.",
   "layers": {
@@ -114,7 +115,7 @@
     "back-wordmark.svg draws the lockup once inside #wmHalf and re-uses it rotated 180°; edit the group, both copies follow.",
     "back-lattice.svg draws the ornament AND the concentric rings once inside #halfOrn as half-paths (top vertex → bottom vertex), then re-uses them rotated 180°; back-medallion.svg does the same with #mdRings. Never draw a ring as a full closed path with a dasharray — the dash phase would not survive the rotation and becomes an orientation tell.",
     "Ice-chrome ground with the cyan set mark scaled ×13 as the medallion — identical geometry to collector.svg's set mark.",
-    "Used for every deck except Entropy: ice, eval, feature, equip, model, framework.",
+    "Used for every deck except Entropy: ice, eval, feature, loadout, model, framework, token.",
     "No printing layer may carry a diagonal gradient or an offset drop shadow — both survive a 180° rotation as their own reverse and become an orientation tell. Grounds and the bezel band use centre-out radial gradients; the frame shadow is dy=0."
   ]
 }

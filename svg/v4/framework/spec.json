@@ -41,7 +41,7 @@
       "x": 180,
       "y": 232,
       "w": 465,
-      "h": 505,
+      "h": 550,
       "z": 20
     },
     "aperture-mask": {
@@ -49,7 +49,7 @@
       "x": 180,
       "y": 232,
       "w": 465,
-      "h": 505,
+      "h": 550,
       "z": 0,
       "role": "mask"
     },
@@ -58,7 +58,7 @@
       "x": 160,
       "y": 212,
       "w": 505,
-      "h": 545,
+      "h": 590,
       "z": 30
     },
     "frame": {
@@ -88,9 +88,9 @@
     "rules-panel": {
       "file": "layers/rules-panel.svg",
       "x": 158,
-      "y": 760,
+      "y": 798,
       "w": 509,
-      "h": 192,
+      "h": 154,
       "z": 50
     },
     "framework-marker": {
@@ -144,9 +144,9 @@
     },
     "rules": {
       "x": 170,
-      "y": 772,
+      "y": 810,
       "w": 485,
-      "h": 168
+      "h": 130
     },
     "typeOverlay": {
       "x": 92,
@@ -164,7 +164,7 @@
       "x": 180,
       "y": 232,
       "w": 465,
-      "h": 505
+      "h": 550
     },
     "frameworkZone": {
       "x": 356,
@@ -229,18 +229,23 @@
     },
     "rules": {
       "x": 190,
-      "y": 792,
+      "y": 830,
       "w": 445,
-      "h": 128,
+      "h": 90,
       "align": "left",
       "vAlign": "top",
       "font": {
         "family": "Barlow",
         "weight": 400,
-        "size": 25,
-        "leading": 32,
+        "size": 23,
+        "leading": 29,
         "tracking": 0,
         "color": "#1a3441"
+      },
+      "autoFit": {
+        "mode": "shrink-to-fit",
+        "minSize": 18,
+        "capacity": "3 lines at 23/29, 3 at the 18px floor"
       }
     },
     "collector": {
@@ -289,6 +294,8 @@
     "type-overlay.svg carries the card type \"FRAMEWORK\" as baked text rotated -90° (reads bottom-to-top from the bottom-left corner, ending just below the icon rail). Text colour #0d222c for contrast on the accent bar.",
     "collector.svg bakes the set mark glyph and the year 2026 (right-aligned); the card number is live text — textBoxes.collector, format NNN/TTT, right-aligned.",
     "traits are live text in textBoxes.traits: 1–5 words, uppercase, joined with \" · \" (maxWords 5). The box is inset to the clear run BETWEEN the subtitle plate's baked diamond pips — never widen it. Long strings shrink to fit (autoFit.minSize 14).",
+    "The rules panel is deliberately short — art is the hero. Rules text shrinks to fit (autoFit.minSize 18) and is clipped at the panel edge, never allowed to spill: budget 3 lines at 23/29. Copy that needs more is too long for the card, not too big for the box.",
+    "The art box bottom sits 28px above the rules panel top; the art window rim (art box + 20) leaves ~10px of clear ink between rim and panel. Move one and you must move the other.",
     "Layer files are cropped to their own artwork; composite each at its x/y on the 825×1125 canvas.",
     "aperture-mask.svg (where present) is a solid black octagon in the art box — clip artwork with it, then composite art-window.svg above.",
     "guides.svg is non-printing (id=guides, data-printing=false).",

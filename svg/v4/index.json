@@ -1,6 +1,6 @@
 {
   "set": "Mastra & Commander — Ice Chrome family",
-  "version": "3.0.0",
+  "version": "3.2.0",
   "canvas": {
     "w": 825,
     "h": 1125,
@@ -17,7 +17,14 @@
       "name": "Operator deck back",
       "accent": "#00c2d4",
       "spec": "svg/v4/backs/operator/spec.json",
-      "appliesTo": ["ice", "eval", "feature", "equip", "model", "framework"],
+      "appliesTo": [
+        "ice",
+        "eval",
+        "feature",
+        "loadout",
+        "model",
+        "framework"
+      ],
       "note": "Default back for every deck except Entropy."
     },
     {
@@ -26,7 +33,9 @@
       "accent": "#7d1c2b",
       "accentLift": "#c4384e",
       "spec": "svg/v4/backs/entropy/spec.json",
-      "appliesTo": ["entropy"],
+      "appliesTo": [
+        "entropy"
+      ],
       "note": "Entropy cards only. Same architecture on the deep-well ground; hairlines lift to #c4384e for contrast."
     }
   ],
@@ -78,15 +87,16 @@
       "renders": "name · traits · one effect icon · rules",
       "slotGroups": [
         "effect"
-      ]
+      ],
+      "note": "Central 150px effect socket, then a near-square art slot, then a short rules panel in the bottom fifth. NO ENTROPY tab in the bottom bezel."
     },
     {
-      "id": "equip",
-      "name": "Equipment",
-      "cardType": "EQUIPMENT",
+      "id": "loadout",
+      "name": "Loadout",
+      "cardType": "LOADOUT",
       "accent": "#0f9a92",
       "accentName": "teal-green",
-      "spec": "svg/v4/equip/spec.json",
+      "spec": "svg/v4/loadout/spec.json",
       "renders": "name · traits · grants (≤3) · rules",
       "slotGroups": [
         "grants"
@@ -115,6 +125,18 @@
       "slotGroups": [
         "frameworkZone"
       ]
+    },
+    {
+      "id": "token",
+      "name": "Token",
+      "cardType": "TOKEN",
+      "accent": "#c2551f",
+      "accentName": "ubuntuOrange",
+      "spec": "svg/v4/token/spec.json",
+      "renders": "name · traits · art (no rules, no slots)",
+      "slotGroups": [],
+      "note": "Near-full art. Title plate and traits strip at the top, art running down to the collector footer, TOKEN on the left type bar. No rules panel and no resource slots — tokens are produced by other cards, they do not act.",
+      "back": "operator"
     }
   ]
 }

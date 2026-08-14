@@ -13,10 +13,10 @@ Design docs (living, status-tagged) are in [`cards/`](cards/):
 ## The frames — "Ice Chrome" family (`svg/v4/`)
 
 Translucent glassy sci-fi frames (Netrunner-meets-Arkham, bright/crisp) on an
-**825×1125 @ 300dpi** canvas. **One variant per card kind** (`svg/v4/<id>/` with its
-own `spec.json`; `svg/v4/index.json` is the manifest). Each shares the chrome material +
-a **subtitle traits plate**, a rotated **type-overlay** bar, and a **collector** footer,
-and differs by **accent tone** + slot groups:
+**825×1125 @ 300dpi** canvas (manifest `svg/v4/index.json`, `version` 3.2.0 — expanded
+art window, shorter rules panel). **One variant per card kind** (`svg/v4/<id>/` with its
+own `spec.json`). Each shares the chrome material + a **subtitle traits plate**, a rotated
+**type-overlay** bar, and a **collector** footer, and differs by **accent tone** + slot groups:
 
 | variant | kind | accent | slots |
 |---|---|---|---|
@@ -24,9 +24,10 @@ and differs by **accent tone** + slot groups:
 | `entropy` | Entropy | oxblood | vector badge (no rails) |
 | `eval` | Objective | gold | hand (≤5) · difficulty (1–3) · par |
 | `feature` | Feature | violet | one effect slot · "NO ENTROPY" tab |
-| `equip` | Equipment | teal | grants (≤3) |
+| `loadout` | Loadout | teal-green | grants (≤3) |
 | `model` | Model | indigo | grants (≤3) · tier marker |
 | `framework` | Framework | platinum | Mastra prestige frame |
+| `token` | Token | ubuntu-orange | near-full art · no rules panel · no slots |
 
 **Card backs** (`svg/v4/backs/`): two shared, all-baked, 180°-symmetric backs — `operator`
 (cyan; used by every non-Entropy deck) and `entropy` (oxblood). `deck.rb` renders them to

@@ -7,9 +7,9 @@
 <path d="M170,852 L192,830 L633,830 L655,852 L655,948 L633,970 L192,970 L170,948 Z" fill="none" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="2"></path>
 <path d="M174.5,853.5 L193.5,834.5 L631.5,834.5 L650.5,853.5 L650.5,946.5 L631.5,965.5 L193.5,965.5 L174.5,946.5 Z" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.4"></path>
 <path d="M182,857 L197,842 L628,842 L643,857 L643,943 L628,958 L197,958 L182,943 Z" fill="none" stroke="#5b7e94" stroke-opacity="0.28" stroke-width="1"></path>
-<path d="M196,833 H629" stroke="#3f7fd0" stroke-width="2.6" stroke-opacity="0.9"></path>
+<path d="M196,833 H629" stroke="#0f9a92" stroke-width="2.6" stroke-opacity="0.9"></path>
 <path d="M212,967 H613" stroke="#5b7e94" stroke-width="1.6" stroke-opacity="0.45"></path>
-<g fill="none" stroke="#3f7fd0" stroke-width="2.4" stroke-opacity="0.75" stroke-linecap="square">
+<g fill="none" stroke="#0f9a92" stroke-width="2.4" stroke-opacity="0.75" stroke-linecap="square">
   <path d="M186,862 V846 H202"></path><path d="M639,862 V846 H623"></path>
   <path d="M186,938 V954 H202"></path><path d="M639,938 V954 H623"></path></g>
 </svg>

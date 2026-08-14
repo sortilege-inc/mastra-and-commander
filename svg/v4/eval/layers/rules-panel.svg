@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="509" height="176" viewBox="158 746 509 176">
+<svg xmlns="http://www.w3.org/2000/svg" width="509" height="144" viewBox="158 778 509 144">
 
 <defs>
   <linearGradient id="rpFill" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.9"></stop><stop offset="0.5" stop-color="#e8f3f9" stop-opacity="0.7"></stop><stop offset="1" stop-color="#bcd5e3" stop-opacity="0.66"></stop></linearGradient>
   <filter id="rpSh" x="-12%" y="-18%" width="124%" height="136%"><feDropShadow dx="0" dy="3" stdDeviation="4.5" flood-color="#0d2c3a" flood-opacity="0.28"></feDropShadow></filter></defs>
-<g filter="url(#rpSh)"><path d="M170,780 L192,758 L633,758 L655,780 L655,888 L633,910 L192,910 L170,888 Z" fill="url(#rpFill)"></path></g>
-<path d="M170,780 L192,758 L633,758 L655,780 L655,888 L633,910 L192,910 L170,888 Z" fill="none" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="2"></path>
-<path d="M174.5,781.5 L193.5,762.5 L631.5,762.5 L650.5,781.5 L650.5,886.5 L631.5,905.5 L193.5,905.5 L174.5,886.5 Z" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.4"></path>
-<path d="M182,785 L197,770 L628,770 L643,785 L643,883 L628,898 L197,898 L182,883 Z" fill="none" stroke="#5b7e94" stroke-opacity="0.28" stroke-width="1"></path>
-<path d="M196,761 H629" stroke="#d9a12a" stroke-width="2.6" stroke-opacity="0.9"></path>
+<g filter="url(#rpSh)"><path d="M170,812 L192,790 L633,790 L655,812 L655,888 L633,910 L192,910 L170,888 Z" fill="url(#rpFill)"></path></g>
+<path d="M170,812 L192,790 L633,790 L655,812 L655,888 L633,910 L192,910 L170,888 Z" fill="none" stroke="#2f4c60" stroke-opacity="0.55" stroke-width="2"></path>
+<path d="M174.5,813.5 L193.5,794.5 L631.5,794.5 L650.5,813.5 L650.5,886.5 L631.5,905.5 L193.5,905.5 L174.5,886.5 Z" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.4"></path>
+<path d="M182,817 L197,802 L628,802 L643,817 L643,883 L628,898 L197,898 L182,883 Z" fill="none" stroke="#5b7e94" stroke-opacity="0.28" stroke-width="1"></path>
+<path d="M196,793 H629" stroke="#d9a12a" stroke-width="2.6" stroke-opacity="0.9"></path>
 <path d="M212,907 H613" stroke="#5b7e94" stroke-width="1.6" stroke-opacity="0.45"></path>
 <g fill="none" stroke="#d9a12a" stroke-width="2.4" stroke-opacity="0.75" stroke-linecap="square">
-  <path d="M186,790 V774 H202"></path><path d="M639,790 V774 H623"></path>
+  <path d="M186,822 V806 H202"></path><path d="M639,822 V806 H623"></path>
   <path d="M186,878 V894 H202"></path><path d="M639,878 V894 H623"></path></g>
 </svg>

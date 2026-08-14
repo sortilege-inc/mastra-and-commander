@@ -2,8 +2,7 @@
 #
 # Owner rules pass, 2026-08-13 (see game-design.md decision log). `kind` selects a
 # frame variant under svg/v4/<variant>/. Pip vocabulary: value=¢(capital),
-# attention=eye, automation=⚙(technology), wild=◌(generic). Loadout cards keep
-# `kind: equipment` until the equip→loadout templating rename lands.
+# attention=eye, automation=⚙(technology), wild=◌(generic).
 #
 # Rules mini-syntax: **bold** · *italic* · inline pips {value}{attention}{automation}{wild}.
 
@@ -11,7 +10,6 @@
 - {kind: framework, name: Mastra, traits: [Framework], rules: "The first **Agent** played each round has no cost and incurs no Entropy."}
 
 # ══ OPERATOR (ice) ═══════════════════════════════════════════════════════════
-- {kind: operator, name: Agent, traits: [Agent], consume: [generic], produce: [generic], rules: "Does not contribute to the Eval."}
 - {kind: operator, name: AgentBrowser, traits: [Tool], consume: [attention], produce: [technology, generic], contributes: [amber/pentagon], rules: "**Call:** Draw 1. Discard 1. Do not add entropy.\n**MCP:** Gain *Durable*."}
 - {kind: operator, name: Social Media Manager, traits: [Skill], consume: [generic], produce: [attention], contributes: [amber/triangle], rules: "**Call:** Gain {attention}{attention}\n**Attach:** Gain *Durable*."}
 - {kind: operator, name: Human-in-the-Loop, traits: [Response], consume: [attention, attention], produce: [capital, capital], contributes: [pink/circle], rules: "**Once:** Look at the top card of the entropy deck. You may discard it. If you do, discard five cards from the top of the operator deck."}
@@ -35,5 +33,9 @@
 # ══ MODEL (model) ════════════════════════════════════════════════════════════
 - {kind: model, name: Fable, traits: [Model, Anthropic], grants: [], rules: "**Entropy 1:** Gain {attention}{automation}."}
 
-# ══ LOADOUT (equip frame; kind stays `equipment` until the rename) ═══════════
-- {kind: equipment, name: Sandbox, traits: [Loadout], grants: [], rules: "{value}{attention}: Discard the top card of your operator deck. Gain {automation}.\n\n**Slot:** This card can hold 1 Entropy. While a card is held here its text box is blank."}
+# ══ LOADOUT (loadout) ════════════════════════════════════════════════════════
+- {kind: loadout, name: Sandbox, traits: [Loadout], grants: [], rules: "{value}{attention}: Discard the top card of your operator deck. Gain {automation}.\n\n**Slot:** This card can hold 1 Entropy. While a card is held here its text box is blank."}
+
+# ══ TOKEN (token) — near-full art, no rules box, no resource slots ═══════════
+# Tokens are produced by other cards; they do not act (no cost/output/contribution).
+- {kind: token, name: Agent, traits: [Agent]}

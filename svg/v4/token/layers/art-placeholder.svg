@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="501" height="736" viewBox="162 228 501 736">
+
+<defs>
+  <linearGradient id="apBg" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="#1d4353"></stop><stop offset="0.55" stop-color="#16303c"></stop><stop offset="1" stop-color="#0a1a22"></stop></linearGradient>
+  <pattern id="apGrid" width="29" height="29" patternUnits="userSpaceOnUse"><path d="M29,0 V29 M0,29 H29" fill="none" stroke="#c2551f" stroke-opacity="0.22" stroke-width="1"></path></pattern>
+  <clipPath id="apClip"><path d="M162,274 L208,228 L617,228 L663,274 L663,918 L617,964 L208,964 L162,918 Z"></path></clipPath>
+</defs>
+<g clip-path="url(#apClip)">
+  <rect x="162" y="228" width="501" height="736" fill="url(#apBg)"></rect><rect x="162" y="228" width="501" height="736" fill="url(#apGrid)"></rect>
+  <g stroke="#c2551f" stroke-opacity="0.4" stroke-width="1.5" fill="none"><path d="M162,228 L663,964 M663,228 L162,964"></path></g>
+  <circle cx="412.5" cy="596" r="64" fill="none" stroke="#c2551f" stroke-opacity="0.7" stroke-width="2"></circle><circle cx="412.5" cy="596" r="6" fill="#c2551f" fill-opacity="0.85"></circle>
+  <path d="M412.5,504 V554 M412.5,638 V688 M320.5,596 H370.5 M454.5,596 H504.5" stroke="#c2551f" stroke-opacity="0.6" stroke-width="2"></path>
+  <text x="412.5" y="740" text-anchor="middle" font-family="&#39;Chakra Petch&#39;,&#39;Barlow Condensed&#39;,system-ui,sans-serif" font-size="26" letter-spacing="8" fill="#c2551f" fill-opacity="0.85">ART 501 × 736</text></g>
+</svg>

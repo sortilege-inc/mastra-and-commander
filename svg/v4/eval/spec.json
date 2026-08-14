@@ -41,7 +41,7 @@
       "x": 180,
       "y": 228,
       "w": 465,
-      "h": 505,
+      "h": 534,
       "z": 20
     },
     "aperture-mask": {
@@ -49,7 +49,7 @@
       "x": 180,
       "y": 228,
       "w": 465,
-      "h": 505,
+      "h": 534,
       "z": 0,
       "role": "mask"
     },
@@ -58,7 +58,7 @@
       "x": 160,
       "y": 208,
       "w": 505,
-      "h": 545,
+      "h": 574,
       "z": 30
     },
     "frame": {
@@ -88,9 +88,9 @@
     "rules-panel": {
       "file": "layers/rules-panel.svg",
       "x": 158,
-      "y": 746,
+      "y": 778,
       "w": 509,
-      "h": 176,
+      "h": 144,
       "z": 50
     },
     "hand-strip": {
@@ -160,9 +160,9 @@
     },
     "rules": {
       "x": 170,
-      "y": 758,
+      "y": 790,
       "w": 485,
-      "h": 152
+      "h": 120
     },
     "typeOverlay": {
       "x": 70,
@@ -180,7 +180,7 @@
       "x": 180,
       "y": 228,
       "w": 465,
-      "h": 505
+      "h": 534
     },
     "handStrip": {
       "x": 200,
@@ -309,18 +309,23 @@
     },
     "rules": {
       "x": 190,
-      "y": 778,
+      "y": 810,
       "w": 445,
-      "h": 112,
+      "h": 80,
       "align": "left",
       "vAlign": "top",
       "font": {
         "family": "Barlow",
         "weight": 400,
-        "size": 24,
-        "leading": 31,
+        "size": 22,
+        "leading": 28,
         "tracking": 0,
         "color": "#1a3441"
+      },
+      "autoFit": {
+        "mode": "shrink-to-fit",
+        "minSize": 18,
+        "capacity": "2 lines at 22/28, 3 at the 18px floor"
       }
     },
     "collector": {
@@ -369,6 +374,8 @@
     "type-overlay.svg carries the card type \"OBJECTIVE\" as baked text rotated -90° (reads bottom-to-top from the bottom-left corner, ending just below the icon rail). Text colour #0d222c for contrast on the accent bar.",
     "collector.svg bakes the set mark glyph and the year 2026 (right-aligned); the card number is live text — textBoxes.collector, format NNN/TTT, right-aligned.",
     "traits are live text in textBoxes.traits: 1–5 words, uppercase, joined with \" · \" (maxWords 5). The box is inset to the clear run BETWEEN the subtitle plate's baked diamond pips — never widen it. Long strings shrink to fit (autoFit.minSize 14).",
+    "The rules panel is deliberately short — art is the hero. Rules text shrinks to fit (autoFit.minSize 18) and is clipped at the panel edge, never allowed to spill: budget 2 lines at 22/28. Copy that needs more is too long for the card, not too big for the box.",
+    "The art box bottom sits 28px above the rules panel top; the art window rim (art box + 20) leaves ~10px of clear ink between rim and panel. Move one and you must move the other.",
     "Layer files are cropped to their own artwork; composite each at its x/y on the 825×1125 canvas.",
     "aperture-mask.svg (where present) is a solid black octagon in the art box — clip artwork with it, then composite art-window.svg above.",
     "guides.svg is non-printing (id=guides, data-printing=false).",

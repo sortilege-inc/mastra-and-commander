@@ -22,7 +22,7 @@ GUIDES = ENV['GUIDES'] == '1'
 
 KIND_TO_VARIANT = {
   'operator' => 'ice', 'entropy' => 'entropy', 'eval' => 'eval', 'feature' => 'feature',
-  'equipment' => 'equip', 'model' => 'model', 'framework' => 'framework'
+  'loadout' => 'loadout', 'model' => 'model', 'framework' => 'framework', 'token' => 'token'
 }.freeze
 SPECS = KIND_TO_VARIANT.values.uniq.each_with_object({}) do |v, h|
   h[v] = JSON.parse(File.read(File.join(ROOT, V4, v, 'spec.json')))
@@ -188,14 +188,15 @@ Dir.chdir(ROOT) do
              align: :center, valign: :middle, ellipsize: :autoscale
       end
 
-      # 4. rules (with inline pip icons)
-      r = tbx['rules']
-      markup = cards.map { |c| rich.call(c[:rules]) }
-      text(str: markup, range: idxs, markup: true, font: "#{font_str(r['font'])} #{pt.call(r['font']['size'])}",
-           color: r['font']['color'], x: r['x'], y: r['y'], width: r['w'], height: r['h'],
-           valign: :top, spacing: pt.call(7)) do |embed|
-        %w[capital attention technology generic].each do |res|
-          embed.svg key: "{{#{res}}}", data: pip_svg(res, INK), width: 30, height: 30, dy: -22
+      # 4. rules (with inline pip icons) — Token cards have no rules box; skip.
+      if (r = tbx['rules'])
+        markup = cards.map { |c| rich.call(c[:rules]) }
+        text(str: markup, range: idxs, markup: true, font: "#{font_str(r['font'])} #{pt.call(r['font']['size'])}",
+             color: r['font']['color'], x: r['x'], y: r['y'], width: r['w'], height: r['h'],
+             valign: :top, spacing: pt.call(7)) do |embed|
+          %w[capital attention technology generic].each do |res|
+            embed.svg key: "{{#{res}}}", data: pip_svg(res, INK), width: 30, height: 30, dy: -22
+          end
         end
       end
 

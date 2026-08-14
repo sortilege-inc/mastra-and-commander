@@ -1,6 +1,6 @@
 {
-  "name": "Mastra & Commander — Ice Chrome / Model",
-  "variant": "model",
+  "name": "Mastra & Commander — Ice Chrome / Loadout",
+  "variant": "loadout",
   "family": "ice-chrome",
   "version": "3.0.0",
   "canvas": {
@@ -23,10 +23,10 @@
     "h": 1000,
     "radius": 28
   },
-  "accent": "#3f7fd0",
-  "accentName": "indigo",
-  "cardType": "MODEL",
-  "renders": "name · traits · grants (≤3) · tier marker · rules",
+  "accent": "#0f9a92",
+  "accentName": "teal-green",
+  "cardType": "LOADOUT",
+  "renders": "name · traits · grants (≤3) · rules",
   "layers": {
     "card-base": {
       "file": "layers/card-base.svg",
@@ -73,7 +73,7 @@
       "file": "layers/title-plate.svg",
       "x": 138,
       "y": 73,
-      "w": 479,
+      "w": 549,
       "h": 94,
       "z": 50
     },
@@ -81,7 +81,7 @@
       "file": "layers/subtitle-plate.svg",
       "x": 162,
       "y": 150,
-      "w": 471,
+      "w": 501,
       "h": 62,
       "z": 50
     },
@@ -101,14 +101,6 @@
       "h": 228,
       "z": 60
     },
-    "tier-marker": {
-      "file": "layers/tier-marker.svg",
-      "x": 610,
-      "y": 80,
-      "w": 102,
-      "h": 80,
-      "z": 70
-    },
     "type-overlay": {
       "file": "layers/type-overlay.svg",
       "x": 64,
@@ -116,7 +108,7 @@
       "w": 56,
       "h": 312,
       "z": 80,
-      "bakedText": "MODEL"
+      "bakedText": "LOADOUT"
     },
     "collector": {
       "file": "layers/collector.svg",
@@ -141,13 +133,13 @@
     "title": {
       "x": 150,
       "y": 85,
-      "w": 455,
+      "w": 525,
       "h": 70
     },
     "traits": {
       "x": 170,
       "y": 158,
-      "w": 455,
+      "w": 485,
       "h": 46
     },
     "rules": {
@@ -179,12 +171,6 @@
       "y": 432,
       "w": 85,
       "h": 216
-    },
-    "tierMarker": {
-      "x": 618,
-      "y": 88,
-      "w": 86,
-      "h": 64
     }
   },
   "slots": {
@@ -214,14 +200,14 @@
     "title": {
       "x": 170,
       "y": 95,
-      "w": 415,
+      "w": 485,
       "h": 52,
       "align": "center",
       "vAlign": "middle",
       "font": {
         "family": "Chakra Petch",
         "weight": 700,
-        "size": 36,
+        "size": 40,
         "tracking": 1.5,
         "transform": "uppercase",
         "color": "#14323f"
@@ -230,7 +216,7 @@
     "traits": {
       "x": 204,
       "y": 166,
-      "w": 387,
+      "w": 417,
       "h": 30,
       "align": "center",
       "vAlign": "middle",
@@ -300,7 +286,7 @@
       "#16303c",
       "#0a1a22"
     ],
-    "accent": "#3f7fd0",
+    "accent": "#0f9a92",
     "accentAlternates": {
       "cyan": "#00c2d4",
       "oxblood": "#7d1c2b",
@@ -312,8 +298,8 @@
     }
   },
   "notes": [
-    "Accent is a single hue (#3f7fd0) on every hairline — a recolour is a find/replace on that value.",
-    "type-overlay.svg carries the card type \"MODEL\" as baked text rotated -90° (reads bottom-to-top from the bottom-left corner, ending just below the icon rail). Text colour #f4f9fc for contrast on the accent bar.",
+    "Accent is a single hue (#0f9a92) on every hairline — a recolour is a find/replace on that value.",
+    "type-overlay.svg carries the card type \"LOADOUT\" as baked text rotated -90° (reads bottom-to-top from the bottom-left corner, ending just below the icon rail). Text colour #f4f9fc for contrast on the accent bar.",
     "collector.svg bakes the set mark glyph and the year 2026 (right-aligned); the card number is live text — textBoxes.collector, format NNN/TTT, right-aligned.",
     "traits are live text in textBoxes.traits: 1–5 words, uppercase, joined with \" · \" (maxWords 5). The box is inset to the clear run BETWEEN the subtitle plate's baked diamond pips — never widen it. Long strings shrink to fit (autoFit.minSize 14).",
     "The rules panel is deliberately short — art is the hero. Rules text shrinks to fit (autoFit.minSize 18) and is clipped at the panel edge, never allowed to spill: budget 3 lines at 24/30. Copy that needs more is too long for the card, not too big for the box.",
