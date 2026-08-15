@@ -14,6 +14,8 @@
 require 'squib'
 require 'yaml'
 require 'json'
+require 'shellwords'
+require 'fileutils'
 
 ROOT = File.expand_path('..', __dir__)
 V4   = 'svg/v4'
@@ -152,6 +154,31 @@ def font_str(f)
   "#{f['family']} #{weight}".strip
 end
 
+# --- per-card art, clipped to a variant's aperture octagon (ImageMagick) ------
+# Fills the art box (cover), then copies the aperture-mask octagon into alpha so
+# only the octagon shows. Cached under output/art-clipped; regenerates when the
+# source art or the mask changes. Returns the cached PNG path, or nil (→ placeholder).
+IM_BIN    = system('command -v magick > /dev/null 2>&1') ? 'magick' : 'convert'
+ART_CACHE = File.join(ROOT, 'output', 'art-clipped')
+FileUtils.mkdir_p(ART_CACHE)
+def clipped_art(variant, art_file, w, h)
+  src = File.join(ROOT, 'art', art_file)
+  return nil unless File.exist?(src)
+  mask = File.join(ROOT, V4, variant, 'layers', 'aperture-mask.svg')
+  out  = File.join(ART_CACHE, "#{variant}__#{art_file.gsub(/[^\w.-]/, '_')}.png")
+  newest = [File.mtime(src), (File.exist?(mask) ? File.mtime(mask) : Time.at(0))].max
+  return out if File.exist?(out) && File.mtime(out) >= newest
+  wh = "#{w}x#{h}"
+  cmd = if File.exist?(mask)
+          "#{IM_BIN} #{src.shellescape} -resize #{wh}^ -gravity center -extent #{wh} " \
+          "\\( #{mask.shellescape} -background none -resize #{wh}! -alpha extract \\) " \
+          "-compose CopyOpacity -composite #{out.shellescape}"
+        else
+          "#{IM_BIN} #{src.shellescape} -resize #{wh}^ -gravity center -extent #{wh} #{out.shellescape}"
+        end
+  system("#{cmd} > /dev/null 2>&1") ? out : nil
+end
+
 Dir.chdir(ROOT) do
   Squib::Deck.new(width: 825, height: 1125, cards: TOTAL, dpi: DPI) do
     names     = cards.map { |c| c[:name].to_s.upcase }
@@ -167,10 +194,30 @@ Dir.chdir(ROOT) do
       dir = "#{V4}/#{v}"
       accent = spec['accent']
 
-      # 1. frame layers (z-order; skip the mask; guides only on demand)
-      spec['layers']
-        .reject { |name, l| l['role'] == 'mask' || (name == 'guides' && !GUIDES) }
-        .sort_by { |_n, l| l['z'] }
+      # 1. frame layers, split around the art plane so each card's art composites
+      #    between the card-base and the art-window bezel. Skip mask, art-placeholder
+      #    (drawn per-card below), and guides (unless requested).
+      drawable = spec['layers'].reject do |name, l|
+        l['role'] == 'mask' || (name == 'guides' && !GUIDES) || name == 'art-placeholder'
+      end
+      ap  = spec['layers']['art-placeholder']
+      apz = ap ? ap['z'] : 20
+      drawable.select { |_n, l| l['z'] < apz }.sort_by { |_n, l| l['z'] }
+        .each { |_n, l| svg file: "#{dir}/#{l['file']}", range: idxs, x: l['x'], y: l['y'], width: l['w'], height: l['h'] }
+      # per-card: clipped art if we have it, else the placeholder window
+      if ap
+        idxs.each do |i|
+          af   = cards[i][:art]
+          clip = af ? clipped_art(v, af.to_s, ap['w'], ap['h']) : nil
+          if clip
+            png file: clip.sub(%r{\A#{Regexp.escape(ROOT)}/}, ''), range: i,
+                x: ap['x'], y: ap['y'], width: ap['w'], height: ap['h']
+          else
+            svg file: "#{dir}/#{ap['file']}", range: i, x: ap['x'], y: ap['y'], width: ap['w'], height: ap['h']
+          end
+        end
+      end
+      drawable.select { |_n, l| l['z'] >= apz }.sort_by { |_n, l| l['z'] }
         .each { |_n, l| svg file: "#{dir}/#{l['file']}", range: idxs, x: l['x'], y: l['y'], width: l['w'], height: l['h'] }
 
       tbx = spec['textBoxes']
@@ -190,10 +237,18 @@ Dir.chdir(ROOT) do
 
       # 4. rules (with inline pip icons) — Token cards have no rules box; skip.
       if (r = tbx['rules'])
-        markup = cards.map { |c| rich.call(c[:rules]) }
+        markup = cards.map do |c|
+          body = rich.call(c[:rules])
+          fl = c[:flavor].to_s.strip
+          unless fl.empty?
+            flm = "<i>#{esc.call(fl)}</i>"
+            body = body.empty? ? flm : "#{body}\n#{flm}"
+          end
+          body
+        end
         text(str: markup, range: idxs, markup: true, font: "#{font_str(r['font'])} #{pt.call(r['font']['size'])}",
              color: r['font']['color'], x: r['x'], y: r['y'], width: r['w'], height: r['h'],
-             valign: :top, spacing: pt.call(7)) do |embed|
+             valign: :top, spacing: pt.call(7), ellipsize: :autoscale) do |embed|
           %w[capital attention technology generic].each do |res|
             embed.svg key: "{{#{res}}}", data: pip_svg(res, INK), width: 30, height: 30, dy: -22
           end

@@ -201,24 +201,25 @@ input, you **pitch cards to make up the difference** (see Pitch economy). The wi
 **resource pipeline** — each node consumes and produces — and it keeps going as long as you
 can fund the next input. Entropy pollutes/subverts by breaking the flow.
 
-🔒 **The Context is a TREE of Agent-owned rows (2026-08-13).** A row does not exist on its
-own: it is **owned by an Agent token**. The round opens with an Agent — **free, because Mastra
-makes the round's first Agent free** — and that Agent's row is your initial context. Every
-further Agent put into play **opens its own row, as a child of the row it came from.**
-Everything else is played *into* a row.
+🔒 **Contexts are opened and owned by Agents (2026-08-13).** A **context** does not exist on
+its own: it is opened by an **Agent token**. The round opens with an Agent — **free, because
+Mastra makes the round's first Agent free** — and that is your initial context. Every further
+Agent put into play **opens its own context, nested under the one it came from.** Everything
+else is played *into* a context.
 
-**"Subagent" is not a card type** — it just means an Agent opened while another row already
-existed. There is one kind of row.
+**"Subagent" is not a card type** — it just means an Agent opened while another context
+already existed.
 
-🔒 **Context ceiling (2026-08-10, rescoped 2026-08-13).** Each row holds at most **7 cards**
-by default; an **Objective may set its own ceiling**, and an Ongoing threat may reduce it.
-A child row's cards **do not count against its parent's ceiling** — which is exactly why you
-delegate. Opening more rows is the only way to do more work than one window can hold.
+🔒 **Context ceiling (2026-08-10, rescoped 2026-08-13).** Each context holds at most **7
+cards** by default; an **Objective may set its own ceiling**, and an Ongoing threat may reduce
+it. A nested context's cards **do not count against its parent's ceiling** — which is exactly
+why you delegate. Opening more contexts is the only way to do more work than one can hold.
 
 🔒 **Tokens (2026-08-13).** A token is **put into play by another card** — never drawn, never
-paid for — and **does not act**: no cost, no output, no Contribution. **Agent** is the only
-token so far, and its whole job is to own a row. In the first set the only source besides
-Mastra's free opener is **Parallelism**.
+paid for — and carries no cost, output, or Contribution. **Agent** is the only token so far,
+and its job is to **own a row** — or be **spent as the face-down card that calls an installed
+Skill/Tool** (see Calling installed resources); either way it never scores itself. In the
+first set the only source besides Mastra's free opener is **Parallelism**.
 
 🟨 **Unsettled:** the owner isn't happy with the consume/produce pattern yet — expect this to
 change through playtesting. Treat the I/O flow as **provisional.**
@@ -237,10 +238,10 @@ questions: **can this card connect (I/O)?** and **does it push the hand toward t
 
 ### Process — superseded 🔒
 **Retired 2026-08-13.** "Process" was the earlier name for a line of execution, with
-Parallelism granting extra concurrent ones. That role is now filled by **Agent-owned context
-rows** (see Context above): Parallelism spawns **Agents**, and each Agent brings its own row.
-There is no separate Process count, and no "open a Process" action — you open a row by
-putting an Agent into play.
+Parallelism granting extra concurrent ones. That role is now filled by **contexts** (see above):
+Parallelism spawns **Agents**, and each Agent brings its own context. There is no separate
+Process count, and no "open a Process" action — you open a context by putting an Agent into
+play.
 
 ### Objective / Eval deck 🔒
 A deck of puzzles. Each Objective states a **target hand** over contributions (color + shape)
@@ -400,9 +401,9 @@ Side = Operator (build) / Entropy (wrench). Costs/stats are placeholders.
     ❓ still open: how many passes win, and two-player match structure.
 14. ❓ Goal-hijack **hidden-objective layer** — commit now or defer? *(Engine ships a minimal
     open swap with the next Eval card.)*
-15. 🔒 **How big a Context can get: 7 per row** by default, or whatever the Objective sets,
-    less any Ongoing reduction (2026-08-13). Each **Agent-owned row** has its own ceiling and a
-    child row's cards do not count against its parent's.
+15. 🔒 **How big a context can get: 7 cards** by default, or whatever the Objective sets,
+    less any Ongoing reduction (2026-08-13). Each **context** has its own ceiling, and a
+    nested context's cards do not count against its parent's.
 16. ❓ **Packs** — do they also supply Eval cards, or is the Eval deck separate?
 17. ❓ **"Setup card" taxonomy** — exactly which cards count as Setup (RAG / equipment / models
     / installs / rewards) for the −5-Entropy scrap?
@@ -421,9 +422,9 @@ eval tiers are a **soft gate**; **loss = failing to match the eval**; deckbuildi
 
 - **2026-08-13 — Owner (second engine session).** Rulings taken while wiring the first
   playable set:
-  - **The Context is a tree of Agent-owned rows.** A row is owned by an **Agent token**; the
-    round opens with one (free via Mastra) and each further Agent opens a **child row of the
-    row it came from**. **"Subagent" is not a distinct token** — just an Agent opened when a
+  - **Play happens in contexts**, each opened and owned by an **Agent token**; the round
+    opens with one (free via Mastra) and each further Agent opens its own context, nested
+    under the one it came from. The unit is a **context** — not a "row". **"Subagent" is not a distinct token** — just an Agent opened when a
     row already exists. **Process is retired** as a concept; there is no "open a Process".
   - **Agent tokens come only from a supply**, put into play by cards that spawn them
     (Parallelism, in this set) — you cannot simply buy another row.
@@ -432,7 +433,7 @@ eval tiers are a **soft gate**; **loss = failing to match the eval**; deckbuildi
   - **`Entropy N:` is a cost**: feed N cards from the Entropy deck onto the stack.
   - **Sandbox's Slot** works by the Operator **diverting a resolving Entropy card** into it,
     rather than catching one automatically.
-  - **Token Limiter's ceiling reduction applies to every row**, parent and child alike.
+  - **Token Limiter's ceiling reduction applies to every context**, parent and nested alike.
   - **Models, loadouts and features shuffle into the operator deck** as findable upgrades
     (which is what makes Y-Combinator's tutor meaningful); you still start with one loadout
     and one model in play. The separate Features deck is gone.

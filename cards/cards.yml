@@ -7,35 +7,47 @@
 # Rules mini-syntax: **bold** · *italic* · inline pips {value}{attention}{automation}{wild}.
 
 # ══ FRAMEWORK (framework) ════════════════════════════════════════════════════
-- {kind: framework, name: Mastra, traits: [Framework], rules: "The first **Agent** played each round has no cost and incurs no Entropy."}
+- {kind: framework, name: Mastra, traits: [TypeScript, Open Source], art: mastra.png, flavor: "The leading TypeScript agent framework.", rules: "The first **Agent** played each round has no cost and incurs no Entropy."}
 
 # ══ OPERATOR (ice) ═══════════════════════════════════════════════════════════
-- {kind: operator, name: AgentBrowser, traits: [Tool], consume: [attention], produce: [technology, generic], contributes: [amber/pentagon], rules: "**Call:** Draw 1. Discard 1. Do not add entropy.\n**MCP:** Gain *Durable*."}
+- {kind: operator, name: Browserbase, traits: [Browser], consume: [attention, technology], produce: [capital, attention], contributes: [amber/pentagon], art: browserbase.png, flavor: "The best headless browser since links2.", rules: "**Call:** Draw 1. Discard 1. Do not add entropy.\n**MCP:** Gain *Durable*."}
 - {kind: operator, name: Social Media Manager, traits: [Skill], consume: [generic], produce: [attention], contributes: [amber/triangle], rules: "**Call:** Gain {attention}{attention}\n**Attach:** Gain *Durable*."}
-- {kind: operator, name: Human-in-the-Loop, traits: [Response], consume: [attention, attention], produce: [capital, capital], contributes: [pink/circle], rules: "**Once:** Look at the top card of the entropy deck. You may discard it. If you do, discard five cards from the top of the operator deck."}
-- {kind: operator, name: Y-Combinator, traits: [Event], consume: [attention, technology], produce: [capital, capital, attention, attention, technology], contributes: [violet/circle], rules: "Search your operator deck for a model, loadout, or feature card and play it without adding entropy."}
+# subhead removed per owner (revisit — see TODO subhead policy); `Response` is still the mechanic.
+- {kind: operator, name: Human-in-the-Loop, consume: [attention, attention], produce: [capital, capital], contributes: [pink/circle], art: human-in-the-loop.jpeg, flavor: "Please confirm nuclear authorization. (y/N)", rules: "**Once:** Look at the top card of the entropy deck. You may discard it. If you do, discard five cards from the top of the operator deck."}
+- {kind: operator, name: YC, traits: [Event], consume: [attention, technology], produce: [capital, capital, attention, attention, technology], contributes: [violet/circle], art: yc-acceptance.jpeg, flavor: "Getting rejected by YC: one step closer to getting into YC.", rules: "Search your operator deck for a model, loadout, or feature card and play it without adding entropy."}
 
 # ══ FEATURE (feature) ════════════════════════════════════════════════════════
-- {kind: feature, name: Parallelism, traits: [Concurrency], effect: fork, rules: "Spawn two subagents.\n**Resolve:** Only 1 entropy is added this way."}
+- {kind: feature, name: Parallel Subagents, traits: [Concurrency], effect: fork, art: parallelism.jpeg, flavor: "Trading time for tokens.", rules: "Put two Agent tokens into play. **Entropy 1.**"}
 
 # ══ ENTROPY (entropy) ════════════════════════════════════════════════════════
-- {kind: entropy, name: Token Limiter, traits: [Noise], rules: "Maximum context per agent is reduced by 1."}
-- {kind: entropy, name: PII Leak, traits: [Risk], rules: "**Ongoing:** Cards that produce {attention} do not contribute to the current eval.\n**Trigger:** If cards producing at least 5 {value} are discarded from hand or context, discard this card."}
+- {kind: entropy, name: Token Limiter, traits: [Constraint], art: token-limiter.jpeg, flavor: "A billion tokens here, a billion tokens there, and you're talking about real money.", rules: "**Ongoing:** Each context holds one fewer card."}
+- {kind: entropy, name: PII Leak, traits: [Risk], art: piileak.jpeg, flavor: "To better assist you, I have committed identity theft on your behalf.", rules: "**Ongoing:** Cards that produce {attention} do not contribute to the current eval.\n**Trigger:** If cards producing at least 5 {value} are discarded from hand or context, discard this card."}
 - {kind: entropy, name: Jailbreak, traits: [Subversion], rules: "**Initialize:** Attach this card to your highest {automation} production card in play. That card no longer contributes to your eval."}
-- {kind: entropy, name: Model Collapse, traits: [Pollution], rules: "**Ongoing:** Generate an additional entropy whenever a card that produces {automation} enters the context."}
+- {kind: entropy, name: Algorithmic Intervention, traits: [Subversion], art: mechahitler.jpeg, flavor: "A little more Mechahitler, please.", rules: "Replace the current eval with an eval that differs by no more than two elements."}
+- {kind: entropy, name: Model Collapse, traits: [Pollution], art: model-collapse.jpeg, flavor: "A copy of a copy of a copy of a copy of a...", rules: "**Ongoing:** Generate an additional entropy whenever a card that produces {automation} enters the context."}
 
 # ══ EVAL / OBJECTIVE (eval) ══════════════════════════════════════════════════
 # hand token grammar: color/shape = exact · color/* = that color, any shape ·
 #   */shape = that shape, any color · !color = banned color · * = any.
-- {kind: eval, name: Personal Tech Support, traits: [Objective], par: 4, difficulty: 1, hand: [cyan/*, cyan/*, amber/*], rules: "\"How do I set my microwave clock?\"\n\"Are smart watches waterproof?\"\n\"My smart light won't turn off.\""}
-- {kind: eval, name: Recruiter Agent, traits: [Objective], par: 5, difficulty: 2, hand: [violet/*, violet/*, violet/*, amber/*], rules: "\"I need a founding senior engineer, part time, seven years of Mastra experience...\""}
+- {kind: eval, name: Personal Tech Support, traits: [Consumer], par: 4, difficulty: 1, hand: [cyan/*, cyan/*, amber/*], art: personal-tech-support.jpeg, rules: "\"How do I set my microwave clock?\"\n\"Are smart watches waterproof?\"\n\"My smart light won't turn off.\""}
+- {kind: eval, name: Recruiter Agent, traits: [Human Resources], par: 5, difficulty: 2, hand: [violet/*, violet/*, violet/*, amber/*], art: recruiter-agent.jpeg, rules: "\"I need a founding senior engineer, part time, seven years of Mastra experience...\""}
 
 # ══ MODEL (model) ════════════════════════════════════════════════════════════
-- {kind: model, name: Fable, traits: [Model, Anthropic], grants: [], rules: "**Entropy 1:** Gain {attention}{automation}."}
+- {kind: model, name: Fable, traits: [Anthropic], grants: [], art: fable.jpeg, flavor: "Not USG Unapproved?", rules: "**Entropy 1:** Gain {attention}{automation}."}
 
 # ══ LOADOUT (loadout) ════════════════════════════════════════════════════════
-- {kind: loadout, name: Sandbox, traits: [Loadout], grants: [], rules: "{value}{attention}: Discard the top card of your operator deck. Gain {automation}.\n\n**Slot:** This card can hold 1 Entropy. While a card is held here its text box is blank."}
+# subhead left blank per owner — revisit (see TODO subhead policy).
+- {kind: loadout, name: Sandbox, grants: [], art: sandbox.jpeg, flavor: "It contains their destructive impulses.", rules: "{value}{attention}: Discard the top card of your operator deck. Gain {automation}.\n\n**Slot:** This card can hold 1 Entropy. While a card is held here its text box is blank."}
 
-# ══ TOKEN (token) — near-full art, no rules box, no resource slots ═══════════
-# Tokens are produced by other cards; they do not act (no cost/output/contribution).
-- {kind: token, name: Agent, traits: [Agent]}
+# ══ TOKEN (token) — near-full art, flavor line, no rules box, no resource slots ═
+# Tokens are produced by other cards, not drawn. Agent: on play it opens a new context
+# window, OR is spent to call an installed Skill/Tool; it scores nothing itself.
+# Subagents are just Agents played by other Agents (no separate token).
+# `flavor`/`art` fields await deck.rb wiring (see cards/TODO.md).
+- {kind: token, name: Agent, traits: [Agent], art: agent.jpeg, flavor: "An agent is an LLM calling tools in a loop."}
+
+# ══ WORKSHOP STUBS (2026-08-13) — mechanics TBD, unrelated to each other ══════
+# Three separate cards: Social Media Manager (above) stays as-is; these two are new
+# and share nothing. NOT a "rant" archetype. To be designed later.
+- {kind: operator, name: "Dario's AI Doom", rules: "STUB — mechanics TBD."}
+- {kind: operator, name: "Theo Rant", rules: "STUB — mechanics TBD."}
